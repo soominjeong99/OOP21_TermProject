@@ -2,7 +2,7 @@ package mall;
 
 import java.util.Arrays;
 
-//장바구니를 관리하기 위한 클래스
+//Managing Cart
 public class CartManager implements Manager {
 	Cart[] cartArray = new Cart[20]; // 바구니를 담는 자료구조, 배열 크기는 20 (임시)
 	int count = 0;
