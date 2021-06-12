@@ -1,5 +1,6 @@
 package mall;
 
+
 import java.util.Scanner; //scanner import
 //Goods Class
 public class Goods {
@@ -9,13 +10,27 @@ public class Goods {
  int gPrice; //price
  
 //Delete Quantity
+
+
+public class Goods {
+ int id; //ìƒí’ˆ ë²ˆí˜¸
+ int stockNum; //ì¬ê³ 
+ String gName; //ì´ë¦„
+ int gPrice; //ê°€ê²©
+ 
+
+
    int subStock(int amount){  
          if(stockNum < amount)  
              return 0;  
          stockNum -= amount;  
          return amount;  
      }  
+
  //Plus Quantity
+
+ 
+
    int addStock(int amount){  
          stockNum += amount;  
          return amount;  
@@ -34,27 +49,27 @@ public class Goods {
       return gPrice;
       }
    
-   Goods(int id_code, int num,String name,int price){  // »ı¼ºÀÚ 
+   Goods(int id_code, int num,String name,int price){  // ìƒì„±ì 
          id = id_code;                 
          stockNum = num;
          gName=name;
          gPrice = price;
      }     
 
+
    /*
    public void add_goods() {
 	   Scanner keyboard = new Scanner(System.in); // Receive keyboard value
 	 
-	   System.out.println("Ãß°¡ÇÒ »óÇ°ÀÇ ÄÚµå¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ì½”ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 	   int new_id=keyboard.nextInt();
-	   System.out.println("Ãß°¡ÇÒ »óÇ°ÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 	   String new_gname=keyboard.nextLine();
-	   System.out.println("Ãß°¡ÇÒ »óÇ°ÀÇ ÃÊ±â ¼ö·®À» ÀÔ·ÂÇÏ¼¼¿ä : ");
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ì´ˆê¸° ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 	   int new_stockNum=keyboard.nextInt();
-	   System.out.println("Ãß°¡ÇÒ »óÇ°ÀÇ °¡°İÀ» ÀÔ·ÂÇÏ¼¼¿ä : ");
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
 	   int new_gPrice=keyboard.nextInt();
 	   
 		
 	}
 */
-}

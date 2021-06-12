@@ -1,38 +1,43 @@
 package mall;
+
 /*
+=======
+
+
 import java.util.*;
 
 public class LoginManager {
 	CustomerManager customerManager;
-	ArrayList<Customer> loggedUser; // Customer·ÎºÎÅÍ login UserÀÇ name ¹Ş¾Æ¿È
+
+	ArrayList<Customer> loggedUser; // Customerë¡œë¶€í„° login Userì˜ name ë°›ì•„ì˜´
 
 	public void login(int id, String pwd)
 	{
 		
 		  customer = customerManager;
 	
-		Customer customer = customerManager.search(id); // id¸¦ customerManager¿¡¼­ °Ë»ö
+		Customer customer = customerManager.search(id); // idë¥¼ customerManagerì—ì„œ ê²€ìƒ‰
 
-		if (customer.getPwd().equals(pwd)) // pwd°¡ ¸Â´ÂÁö È®ÀÎ
+		if (customer.getPwd().equals(pwd)) // pwdê°€ ë§ëŠ”ì§€ í™•ì¸
 		{
-			loggedUser.add(customer); // ArrayList¿¡ loggedUser Ãß°¡
-			System.out.println("ID : " + customer.getId() + "NAME: " + customer.getName() + "·Î±×ÀÎÇÏ¼Ì½À´Ï´Ù.");
+			loggedUser.add(customer); // ArrayListì— loggedUser ì¶”ê°€
+			System.out.println("ID : " + customer.getId() + "NAME: " + customer.getName() + "ë¡œê·¸ì¸í•˜ì…¨ìŠµë‹ˆë‹¤.");
 		}
 		else
 		{
-			System.out.println("ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù.");
+			System.out.println("ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤.");
 		} 
 		
 	}
 	
 	public void logout(int id) {
-		int position = isExist(id); // id°¡ ÇöÀç ·Î±×ÀÎ ÁßÀÎÁö È®ÀÎ
+		int position = isExist(id); // idê°€ í˜„ì¬ ë¡œê·¸ì¸ ì¤‘ì¸ì§€ í™•ì¸
 
-		loggedUser.remove(position); // idÀÇ ÀÎµ¦½º¸¦ ¹Ş¾Æ¿Í¼­ Á¦°Å
-		System.out.println(id + " ´Ô ·Î±×¾Æ¿ôÇÏ¼Ì½À´Ï´Ù.");
+		loggedUser.remove(position); // idì˜ ì¸ë±ìŠ¤ë¥¼ ë°›ì•„ì™€ì„œ ì œê±°
+		System.out.println(id + " ë‹˜ ë¡œê·¸ì•„ì›ƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
 	}
 	
-	public void displayLoggedUser() { // ·Î±×ÀÎ À¯ÀúÀÇ ÀÎµ¦½º ¹Ş¾Æ¿À±â
+	public void displayLoggedUser() { // ë¡œê·¸ì¸ ìœ ì €ì˜ ì¸ë±ìŠ¤ ë°›ì•„ì˜¤ê¸°
 		for (int i = 0; i < loggedUser.size(); i++)
 		{
 			System.out.println(loggedUser.get(i));
@@ -52,3 +57,89 @@ public class LoginManager {
 }
 
 */
+=======
+	ArrayList<String> loggedUser; // Customerë¡œë¶€í„° login Userì˜ name ë°›ì•„ì˜´
+
+	public LoginManager(CustomerManager customerManager)
+	{
+		loggedUser = new ArrayList<>();
+		this.customerManager = customerManager;
+	}
+	
+	public void login(int id, String pwd)
+	{
+		for (int i = 0; i < customerManager.customerArray.length; i++)
+		{
+			Customer temp = customerManager.customerArray.get(i);
+			
+			if (temp.getId() == id)
+			{
+				boolean found = false;
+				
+				for (int j = 0; j < loggedUser.size(); j++)
+				{
+					if (loggedUser.get(i) == temp.getName())
+					{
+						found = true;
+						break;
+					}
+				}
+				
+				if (found)
+				{
+					System.out.println("\nì´ë¯¸ ë¡œê·¸ì¸ ë˜ì–´ ìˆìŠµë‹ˆë‹¤!");
+				}
+				else
+				{
+					if (temp.getPwd() != pwd)
+					{
+						System.out.println("ì˜ëª»ëœ ë¹„ë°€ë²ˆí˜¸ì…ë‹ˆë‹¤!");
+						return;
+					}
+				}
+			}
+			
+			System.out.println("\në“±ë¡ëœ ê³ ê° ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤!");
+		}
+	}
+
+	public void logout(int id) {
+		for (int i = 0; i < customerManager.customerArray.length; i++)
+		{
+			Customer temp = customerManager.customer.get(i);
+			
+			if (temp.getId() == id)
+			{
+				boolean found = false;
+				
+				for (int j = 0; j < loggedUser.size(); j++)
+				{
+					if (loggedUser.get(i) == temp.getName())
+					{
+						found = true;
+						break;
+					}
+				}
+				
+				if (!found)
+				{
+					System.out.println("\në¡œê·¸ì¸ ë˜ì–´ ìˆì§€ ì•ŠìŠµë‹ˆë‹¤!");
+				}
+				else
+				{
+					System.out.println(temp.getName() +" ë‹˜ ë¡œê·¸ì•„ì›ƒ í•˜ì…¨ìŠµë‹ˆë‹¤!");
+					loggedUser.remove(temp.getName());
+					return;
+				}
+			}
+		}
+	}
+	
+	public void displayLoggedUser() { // ë¡œê·¸ì¸ ìœ ì €ì˜ ì¸ë±ìŠ¤ ë°›ì•„ì˜¤ê¸°
+		for (int i = 0; i < loggedUser.size(); i++)
+		{
+			System.out.println(loggedUser.get(i));
+		}
+	}
+}
+
