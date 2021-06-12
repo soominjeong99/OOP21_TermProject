@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
  
 class UserFrame extends JFrame{
 	UserFrame(){
-	  super("사용자 메인 메뉴"); //타이틀
+	  super("사용자 메인 메뉴창"); //타이틀
       JPanel jPanel = new JPanel();
   	  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	 
@@ -43,8 +43,7 @@ class UserFrame extends JFrame{
       add(jPanel);
       Dimension frameSize = getSize();
       Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-      setLocation((windowSize.width - frameSize.width) / 2,
-              (windowSize.height - frameSize.height) / 2); //화면 중앙에 띄우기
+      setLocation((windowSize.width - frameSize.width) / 2,(windowSize.height - frameSize.height) / 2); //화면 중앙에 띄우기
       setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
       setVisible(true);
 	}

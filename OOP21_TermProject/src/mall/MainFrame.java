@@ -78,6 +78,7 @@ public class MainFrame extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			new UserFrame();
+			
 			setVisible(false);
 			}
 		});

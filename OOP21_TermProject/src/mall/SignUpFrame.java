@@ -13,8 +13,10 @@ class SignUpFrame extends JFrame implements ActionListener{
     JTextField txtid, txtpw, txtname, txtemail, txtaddr;
     
     SignUpFrame(){
-        setTitle("회원가입");
-        setSize(400, 250);
+    	
+        setTitle("회원가입 창");
+       
+        setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); 
         panel = new JPanel();
