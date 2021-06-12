@@ -1,20 +1,36 @@
 package mall;
 
-//±ÂÁî Å¬·¡½º
+
+import java.util.Scanner; //scanner import
+//Goods Class
 public class Goods {
- int id; //»óÇ° ¹øÈ£
- int stockNum; //Àç°í
- String gName; //ÀÌ¸§
- int gPrice; //°¡°İ
+ int id; //Goods number
+ int stockNum; //stock
+ String gName; //name
+ int gPrice; //price
  
- //¼ö·® ¸¶ÀÌ³Ê½º
+//Delete Quantity
+
+
+public class Goods {
+ int id; //ìƒí’ˆ ë²ˆí˜¸
+ int stockNum; //ì¬ê³ 
+ String gName; //ì´ë¦„
+ int gPrice; //ê°€ê²©
+ 
+
+
    int subStock(int amount){  
          if(stockNum < amount)  
              return 0;  
          stockNum -= amount;  
          return amount;  
      }  
-   //¼ö·® ÇÃ·¯½º
+
+ //Plus Quantity
+
+ 
+
    int addStock(int amount){  
          stockNum += amount;  
          return amount;  
@@ -33,7 +49,7 @@ public class Goods {
       return gPrice;
       }
    
-   Goods(int id_code, int num,String name,int price){  // »ı¼ºÀÚ 
+   Goods(int id_code, int num,String name,int price){  // ìƒì„±ì 
          id = id_code;                 
          stockNum = num;
          gName=name;
@@ -41,5 +57,19 @@ public class Goods {
      }     
 
 
-
-}
+   /*
+   public void add_goods() {
+	   Scanner keyboard = new Scanner(System.in); // Receive keyboard value
+	 
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ì½”ë“œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
+	   int new_id=keyboard.nextInt();
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš” : ");
+	   String new_gname=keyboard.nextLine();
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ì´ˆê¸° ìˆ˜ëŸ‰ì„ ì…ë ¥í•˜ì„¸ìš” : ");
+	   int new_stockNum=keyboard.nextInt();
+	   System.out.println("ì¶”ê°€í•  ìƒí’ˆì˜ ê°€ê²©ì„ ì…ë ¥í•˜ì„¸ìš” : ");
+	   int new_gPrice=keyboard.nextInt();
+	   
+		
+	}
+*/

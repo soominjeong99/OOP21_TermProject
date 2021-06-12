@@ -1,16 +1,19 @@
 package mall;
 
-//Cart Å¬·¡½º
+
+//Cart Class
 public class Cart {
-int id; //±ÂÁî ³Ñ¹ö
-String gName; //ÀÌ¸§
-int stockNum; //Àç°í
-int buyNum; //»ê °¹¼ö
-int gPrice; //°³´ç°¡°Ý
-int totalPrice; //ÃÑ°¡°Ý   
+int id; //goods number
+String gName; //name
+int stockNum; //stock
+int buyNum; //Number of purchases
+int gPrice; //Price per unit
+int totalPrice; //Total Price 
 Goods goods;
 
-//¼ö·® ¸¶ÀÌ³Ê½º
+
+
+
   int subStock(int amount){  
         if(stockNum < amount)  
             return 0;  
@@ -18,13 +21,17 @@ Goods goods;
         return amount;  
     }  
   
-  //¼ö·® ÇÃ·¯½º
+
+  // Quantity
+
+
+
   int addStock(int amount){  
         stockNum += amount;  
         return amount;  
     }  
   
-  // ÃÑ °¡°Ý ±¸ÇÏ±â 
+
   int totalPrice() {
      return buyNum *gPrice;
   }
@@ -40,14 +47,14 @@ Goods goods;
      }
   public int getTotalPrice() {
      return totalPrice;
-     }
+  }
   public String getName() {
      return gName;
      }
   public int getPrice() {
      return gPrice;
      }
-  Cart(int id_code,String name, int num, int buyNumber,int perPrice,int tolPrice){  // »ý¼ºÀÚ 
+  Cart(int id_code,String name, int num, int buyNumber,int perPrice,int tolPrice){  // ìƒì„±ìž 
         id = id_code;                 
         gName=name;
         stockNum = num;

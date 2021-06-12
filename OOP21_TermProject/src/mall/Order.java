@@ -1,12 +1,21 @@
 package mall;
 
 public class Order {
-	   int orderNum; // ÁÖ¹®¹øÈ£
-	   int id; // ±ÂÁî ³Ñ¹ö
-	   String gName; // ÀÌ¸§
-	   int buyNum; // »ê °¹¼ö
-	   int gPrice; // °³´ç°¡°İ
-	   int totalPrice; // ÃÑ°¡°İ
+
+	   int orderNum; // Order Number
+	   int id; // Goods number
+	   String gName; // name
+	   int buyNum; //Number of purchases
+	   int gPrice; //Price per unit
+	   int totalPrice; //Total Price 
+
+	   int orderNum; // ì£¼ë¬¸ë²ˆí˜¸
+	   int id; // êµ¿ì¦ˆ ë„˜ë²„
+	   String gName; // ì´ë¦„
+	   int buyNum; // ì‚° ê°¯ìˆ˜
+	   int gPrice; // ê°œë‹¹ê°€ê²©
+	   int totalPrice; // ì´ê°€ê²©
+
 
 	   int totalPrice() {
 	      return buyNum * gPrice;
@@ -36,7 +45,7 @@ public class Order {
 	      return gPrice;
 	   }
 
-	   Order(int orderNumber, int id_code, String name, int num, int buyNumber, int perPrice, int tolPrice) { // »ı¼ºÀÚ
+	   Order(int orderNumber, int id_code, String name, int num, int buyNumber, int perPrice, int tolPrice) { // ìƒì„±ì
 	      orderNum = orderNumber;
 	      id = id_code;
 	      gName = name;
