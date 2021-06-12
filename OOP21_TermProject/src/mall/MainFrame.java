@@ -54,7 +54,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
@@ -71,10 +71,14 @@ public class MainFrame extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		//창 가운데 위치
+		setLocationRelativeTo(null); 
+		
 		JButton btnNewButton = new JButton("사용자");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				UserFrame.main(null);
+			new UserFrame();
+			setVisible(false);
 			}
 		});
 		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 15));
@@ -103,14 +107,14 @@ public class MainFrame extends JFrame {
 		panel.add(button);
 		
 		JLabel lblNewLabel = new JLabel("원하시는 작업을 선택해 주세요.");
-		lblNewLabel.setFont(new Font("나눔바른펜", Font.PLAIN, 17));
+		lblNewLabel.setFont(new Font("나눔바른펜", Font.PLAIN, 13));
 		lblNewLabel.setBounds(99, 48, 229, 38);
 		panel.add(lblNewLabel);
 		
 		//기존의 데이터를 가져오기 위한 FileInputStream in과 매니저 객체
 		
-
 	}
+
 	/*
 	public static Management returnManager() {
 		Management manager = null;
@@ -141,3 +145,4 @@ public class MainFrame extends JFrame {
 	}
 	*/
 }
+

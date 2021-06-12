@@ -1,5 +1,5 @@
 package mall;
-
+/*
 import java.util.*;
 
 public class LoginManager {
@@ -8,20 +8,23 @@ public class LoginManager {
 
 	public void login(int id, String pwd)
 	{
-		customer = customerManager;
+		
+		  customer = customerManager;
+	
 		Customer customer = customerManager.search(id); // id를 customerManager에서 검색
 
 		if (customer.getPwd().equals(pwd)) // pwd가 맞는지 확인
 		{
 			loggedUser.add(customer); // ArrayList에 loggedUser 추가
-			System.out.println("ID : " + customer.getId() + "NAME: " + customer.getName() + "로그인하셨습니다."");
+			System.out.println("ID : " + customer.getId() + "NAME: " + customer.getName() + "로그인하셨습니다.");
 		}
 		else
 		{
 			System.out.println("비밀번호가 틀렸습니다.");
-		}
+		} 
+		
 	}
-
+	
 	public void logout(int id) {
 		int position = isExist(id); // id가 현재 로그인 중인지 확인
 
@@ -48,3 +51,4 @@ public class LoginManager {
 	}
 }
 
+*/

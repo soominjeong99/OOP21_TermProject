@@ -1,20 +1,21 @@
 package mall;
 
-//굿즈 클래스
+import java.util.Scanner; //scanner import
+//Goods Class
 public class Goods {
- int id; //상품 번호
- int stockNum; //재고
- String gName; //이름
- int gPrice; //가격
+ int id; //Goods number
+ int stockNum; //stock
+ String gName; //name
+ int gPrice; //price
  
- //수량 마이너스
+//Delete Quantity
    int subStock(int amount){  
          if(stockNum < amount)  
              return 0;  
          stockNum -= amount;  
          return amount;  
      }  
-   //수량 플러스
+ //Plus Quantity
    int addStock(int amount){  
          stockNum += amount;  
          return amount;  
@@ -40,6 +41,20 @@ public class Goods {
          gPrice = price;
      }     
 
-
-
+   /*
+   public void add_goods() {
+	   Scanner keyboard = new Scanner(System.in); // Receive keyboard value
+	 
+	   System.out.println("추가할 상품의 코드를 입력하세요 : ");
+	   int new_id=keyboard.nextInt();
+	   System.out.println("추가할 상품의 이름을 입력하세요 : ");
+	   String new_gname=keyboard.nextLine();
+	   System.out.println("추가할 상품의 초기 수량을 입력하세요 : ");
+	   int new_stockNum=keyboard.nextInt();
+	   System.out.println("추가할 상품의 가격을 입력하세요 : ");
+	   int new_gPrice=keyboard.nextInt();
+	   
+		
+	}
+*/
 }

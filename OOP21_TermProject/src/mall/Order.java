@@ -1,12 +1,12 @@
 package mall;
 
 public class Order {
-	   int orderNum; // 주문번호
-	   int id; // 굿즈 넘버
-	   String gName; // 이름
-	   int buyNum; // 산 갯수
-	   int gPrice; // 개당가격
-	   int totalPrice; // 총가격
+	   int orderNum; // Order Number
+	   int id; // Goods number
+	   String gName; // name
+	   int buyNum; //Number of purchases
+	   int gPrice; //Price per unit
+	   int totalPrice; //Total Price 
 
 	   int totalPrice() {
 	      return buyNum * gPrice;

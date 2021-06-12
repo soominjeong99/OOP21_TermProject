@@ -1,16 +1,16 @@
 package mall;
 
-//Cart 클래스
+//Cart Class
 public class Cart {
-int id; //굿즈 넘버
-String gName; //이름
-int stockNum; //재고
-int buyNum; //산 갯수
-int gPrice; //개당가격
-int totalPrice; //총가격   
+int id; //goods number
+String gName; //name
+int stockNum; //stock
+int buyNum; //Number of purchases
+int gPrice; //Price per unit
+int totalPrice; //Total Price 
 Goods goods;
 
-//수량 마이너스
+//Delete Quantity
   int subStock(int amount){  
         if(stockNum < amount)  
             return 0;  
@@ -18,7 +18,7 @@ Goods goods;
         return amount;  
     }  
   
-  //수량 플러스
+  // Quantity
   int addStock(int amount){  
         stockNum += amount;  
         return amount;  
