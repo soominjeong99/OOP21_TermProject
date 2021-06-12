@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 //Managing Cart
 public class CartManager implements Manager {
-	Cart[] cartArray = new Cart[20]; // 바구니를 담는 자료구조, 배열 크기는 20 (임시)
+	Cart[] cartArray = new Cart[20]; //Array of shopping carts
 	int count = 0;
 
 	@Override
-	// 장바구니를 배열에 추가
+	// Add
 	public void add(Object o) {
-		// 배열 크기를 넘어갈 경우 추가 못함
+		// Cannot append if it exceeds the size of the array
 		if (count >= cartArray.length) {
 			throw new ArrayIndexOutOfBoundsException("더이상 추가할 수 없습니다.");
 		}
@@ -18,16 +18,16 @@ public class CartManager implements Manager {
 	}
 
 	@Override
-	// 장바구니에서 상품 삭제
+	// Remove(Delete)
 	public void remove(int i) {
-		// 배열에서 상품 아이디를 가진 인덱스 값을 deleteKey에 저장
+		// Store the index of the product ID in the array in deleteKey
 		int deleteKey = Arrays.binarySearch(cartArray, i);
 
-		if (deleteKey < 0) // 배열에 해당 물품이 없을 경우
+		if (deleteKey < 0) // If the item is not in the array
 		{
 			throw new ArrayIndexOutOfBoundsException("해당 물품을 찾을 수 없습니다");
 		} else {
-			// deleteKey 위치의 데이터를 삭제하고, index 뒤의 데이터는 한칸씩 당겨진다.
+			// Delete data at deleteKey location index, and the data behind is pulled
 			for (int k = deleteKey; k < count - 1; k++) {
 				cartArray[k] = cartArray[k + 1];
 			}
@@ -37,13 +37,13 @@ public class CartManager implements Manager {
 	}
 
 	@Override
-	// 장바구니 내용 수정
+	// Modify
 	public void modify(int i, Object o) {
 
-		// 배열에서 상품 아이디를 가진 인덱스 값을 searchKey에 저장
+		// Store the index of the product ID in the array in searhKey
 		int searchKey = Arrays.binarySearch(cartArray, i);
 
-		if (searchKey < 0) // 배열에 해당 물품이 없을 경우
+		if (searchKey < 0) // If the item is not in the array
 		{
 			throw new ArrayIndexOutOfBoundsException("해당 물품을 찾을 수 없습니다");
 		} else {
@@ -52,7 +52,7 @@ public class CartManager implements Manager {
 	}
 
 	@Override
-	// 전체 장바구니 내용 화면 출력
+	// Print the entire contents to the screen
 	public void display() {
 		System.out.println(Arrays.toString(cartArray));
 	}
