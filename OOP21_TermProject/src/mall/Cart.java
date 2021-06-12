@@ -12,15 +12,6 @@ int totalPrice; //Total Price
 Goods goods;
 
 
-//Cart 클래스
-public class Cart {
-int id; //굿즈 넘버
-String gName; //이름
-int stockNum; //재고
-int buyNum; //산 갯수
-int gPrice; //개당가격
-int totalPrice; //총가격   
-Goods goods;
 
 
   int subStock(int amount){  
