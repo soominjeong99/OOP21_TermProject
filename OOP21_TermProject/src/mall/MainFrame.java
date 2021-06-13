@@ -92,7 +92,7 @@ public class MainFrame extends JFrame {
 		panel.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-	//			ManagerFrame.main(null);
+				ManagerFrame.main(null);
 			}
 		});
 
