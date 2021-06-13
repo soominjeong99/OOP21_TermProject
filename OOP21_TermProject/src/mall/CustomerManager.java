@@ -1,61 +1,65 @@
 package mall;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 //Managing Customer
 public class CustomerManager implements Manager {
 	
-	Customer[] customerArray = new Customer[20]; //Array of customers
-	int count = 0;
+	ArrayList<Customer> customerArray = new ArrayList<Customer>();// Array of goods
+	int customerCount = 0;
 
 	@Override
 	// Add
 	public void add(Object o) {
-		// Cannot append if it exceeds the size of the array
-		if (count >= customerArray.length) {
-			throw new ArrayIndexOutOfBoundsException("´õÀÌ»ó Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.");
-		}
-		customerArray[count++] = (Customer) o;
+
+		customerArray.add((Customer) o);
+		customerCount++;
+
 	}
 
 	@Override
 	// Remove(Delete)
-	public void remove(int i) {
-		// Store the index of the customer ID in the array in deleteKey
-		int deleteKey = Arrays.binarySearch(customerArray, i);
+	public void remove(int i) throws Exception {
+		try {
+			// Search the index of goods ID and remove the index
+			for (int k = 0; k < customerArray.size(); k++) {
+				if (customerArray.get(k).getId() == i) {
+					customerArray.remove(k);
+					customerCount--;
+				}
 
-		if (deleteKey < 0) // If the item is not in the array
-		{
-			throw new ArrayIndexOutOfBoundsException("ÇØ´ç °í°´À» Ã£À» ¼ö ¾ø½À´Ï´Ù");
-		} else {
-			// Delete data at deleteKey location index, and the data behind is pulled
-			for (int k = deleteKey; k < count - 1; k++) {
-				customerArray[k] = customerArray[k + 1];
 			}
-			count--;
-			customerArray[count] = null;
+		} catch (Exception e) {
+			throw new Exception("ë¬¼í’ˆ ì—†ìŒ");
 		}
+
 	}
 
 	@Override
 	// Modify
-	public void modify(int i, Object o) {
+	public void modify(int i, Object o) throws Exception {
 
-		// Store the index of the customer ID in the array in searhKey
-		int searchKey = Arrays.binarySearch(customerArray, i);
+		try {
+			// Search the index of goods ID and modify the contents
+			for (int k = 0; k < customerArray.size(); k++) {
+				if (customerArray.get(k).getId() == i) {
+					customerArray.set(k, (Customer) o);
+				}
+			}
 
-		if (searchKey < 0) // If the item is not in the array
-		{
-			throw new ArrayIndexOutOfBoundsException("ÇØ´ç °í°´À» Ã£À» ¼ö ¾ø½À´Ï´Ù");
-		} else {
-			customerArray[searchKey] = (Customer) o;
+		} catch (Exception e) {
+			throw new Exception("ë¬¼í’ˆ ì—†ìŒ");
 		}
+
 	}
 
 	@Override
 	// Print the entire contents to the screen
 	public void display() {
-		System.out.println(Arrays.toString(customerArray));
+		for (Customer customers : customerArray) {
+			System.out.println(customers);
+		}
 	}
 
 }
