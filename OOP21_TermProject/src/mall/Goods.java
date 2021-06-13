@@ -10,16 +10,6 @@ public class Goods {
  int gPrice; //price
  
 //Delete Quantity
-
-
-public class Goods {
- int id; //상품 번호
- int stockNum; //재고
- String gName; //이름
- int gPrice; //가격
- 
-
-
    int subStock(int amount){  
          if(stockNum < amount)  
              return 0;  
@@ -49,7 +39,7 @@ public class Goods {
       return gPrice;
       }
    
-   Goods(int id_code, int num,String name,int price){  // 생성자 
+   Goods(int id_code, int num,String name,int price){  // �깮�꽦�옄 
          id = id_code;                 
          stockNum = num;
          gName=name;
@@ -61,15 +51,16 @@ public class Goods {
    public void add_goods() {
 	   Scanner keyboard = new Scanner(System.in); // Receive keyboard value
 	 
-	   System.out.println("추가할 상품의 코드를 입력하세요 : ");
+	   System.out.println("異붽��븷 �긽�뭹�쓽 肄붾뱶瑜� �엯�젰�븯�꽭�슂 : ");
 	   int new_id=keyboard.nextInt();
-	   System.out.println("추가할 상품의 이름을 입력하세요 : ");
+	   System.out.println("異붽��븷 �긽�뭹�쓽 �씠由꾩쓣 �엯�젰�븯�꽭�슂 : ");
 	   String new_gname=keyboard.nextLine();
-	   System.out.println("추가할 상품의 초기 수량을 입력하세요 : ");
+	   System.out.println("異붽��븷 �긽�뭹�쓽 珥덇린 �닔�웾�쓣 �엯�젰�븯�꽭�슂 : ");
 	   int new_stockNum=keyboard.nextInt();
-	   System.out.println("추가할 상품의 가격을 입력하세요 : ");
+	   System.out.println("異붽��븷 �긽�뭹�쓽 媛�寃⑹쓣 �엯�젰�븯�꽭�슂 : ");
 	   int new_gPrice=keyboard.nextInt();
 	   
 		
 	}
 */
+}
