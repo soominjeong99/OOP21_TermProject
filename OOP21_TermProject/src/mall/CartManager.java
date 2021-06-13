@@ -1,59 +1,63 @@
 package mall;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 //Managing Cart
 public class CartManager implements Manager {
-	Cart[] cartArray = new Cart[20]; //Array of shopping carts
-	int count = 0;
+	ArrayList<Cart> cartArray = new ArrayList<Cart>();// Array of goods
+	int itemCount = 0;
 
 	@Override
 	// Add
 	public void add(Object o) {
-		// Cannot append if it exceeds the size of the array
-		if (count >= cartArray.length) {
-			throw new ArrayIndexOutOfBoundsException("´õÀÌ»ó Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.");
-		}
-		cartArray[count++] = (Cart) o;
+
+		cartArray.add((Cart) o);
+		itemCount++;
+
 	}
 
 	@Override
 	// Remove(Delete)
-	public void remove(int i) {
-		// Store the index of the product ID in the array in deleteKey
-		int deleteKey = Arrays.binarySearch(cartArray, i);
+	public void remove(int i) throws Exception {
+		try {
+			// Search the index of goods ID and remove the index
+			for (int k = 0; k < cartArray.size(); k++) {
+				if (cartArray.get(k).id == i) {
+					cartArray.remove(k);
+					itemCount--;
+				}
 
-		if (deleteKey < 0) // If the item is not in the array
-		{
-			throw new ArrayIndexOutOfBoundsException("ÇØ´ç ¹°Ç°À» Ã£À» ¼ö ¾ø½À´Ï´Ù");
-		} else {
-			// Delete data at deleteKey location index, and the data behind is pulled
-			for (int k = deleteKey; k < count - 1; k++) {
-				cartArray[k] = cartArray[k + 1];
 			}
-			count--;
-			cartArray[count] = null;
+		} catch (Exception e) {
+			throw new Exception("ë¬¼í’ˆ ì—†ìŒ");
 		}
+
 	}
 
 	@Override
 	// Modify
-	public void modify(int i, Object o) {
+	public void modify(int i, Object o) throws Exception {
 
-		// Store the index of the product ID in the array in searhKey
-		int searchKey = Arrays.binarySearch(cartArray, i);
+		try {
+			// Search the index of goods ID and modify the contents
+			for (int k = 0; k < cartArray.size(); k++) {
+				if (cartArray.get(k).id == i) {
+					cartArray.set(k, (Cart) o);
+				}
+			}
 
-		if (searchKey < 0) // If the item is not in the array
-		{
-			throw new ArrayIndexOutOfBoundsException("ÇØ´ç ¹°Ç°À» Ã£À» ¼ö ¾ø½À´Ï´Ù");
-		} else {
-			cartArray[searchKey] = (Cart) o;
+		} catch (Exception e) {
+			throw new Exception("ë¬¼í’ˆ ì—†ìŒ");
 		}
+
 	}
 
 	@Override
 	// Print the entire contents to the screen
 	public void display() {
-		System.out.println(Arrays.toString(cartArray));
+		for (Cart carts : cartArray) {
+			System.out.println(carts);
+		}
 	}
 }

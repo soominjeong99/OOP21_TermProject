@@ -1,61 +1,65 @@
 package mall;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 //Managing Goods
 public class GoodsManager implements Manager {
 
-	Goods[] goodsArray = new Goods[20]; //Array of goods
-	int count = 0;
+	ArrayList<Goods> goodsArray = new ArrayList<Goods>();// Array of goods
+	int itemCount = 0;
 
 	@Override
 	// Add
 	public void add(Object o) {
-		// Cannot append if it exceeds the size of the array
-		if (count >= goodsArray.length) {
-			throw new ArrayIndexOutOfBoundsException("´õÀÌ»ó Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.");
-		}
-		goodsArray[count++] = (Goods) o;
+
+		goodsArray.add((Goods) o);
+		itemCount++;
+
 	}
 
 	@Override
 	// Remove(Delete)
-	public void remove(int i) {
-		// Store the index of the goods ID in the array in deleteKey
-		int deleteKey = Arrays.binarySearch(goodsArray, i);
+	public void remove(int i) throws Exception {
+		try {
+			// Search the index of goods ID and remove the index
+			for (int k = 0; k < goodsArray.size(); k++) {
+				if (goodsArray.get(k).id == i) {
+					goodsArray.remove(k);
+					itemCount--;
+				}
 
-		if (deleteKey < 0) // If the item is not in the array
-		{
-			throw new ArrayIndexOutOfBoundsException("ÇØ´ç ¹°Ç°À» Ã£À» ¼ö ¾ø½À´Ï´Ù");
-		} else {
-			// Delete data at deleteKey location index, and the data behind is pulled
-			for (int k = deleteKey; k < count - 1; k++) {
-				goodsArray[k] = goodsArray[k + 1];
 			}
-			count--;
-			goodsArray[count] = null;
+		} catch (Exception e) {
+			throw new Exception("ë¬¼í’ˆ ì—†ìŒ");
 		}
+
 	}
 
 	@Override
 	// Modify
-	public void modify(int i, Object o) {
+	public void modify(int i, Object o) throws Exception {
 
-		// Store the index of the goods ID in the array in searhKey
-		int searchKey = Arrays.binarySearch(goodsArray, i);
+		try {
+			// Search the index of goods ID and modify the contents
+			for (int k = 0; k < goodsArray.size(); k++) {
+				if (goodsArray.get(k).id == i) {
+					goodsArray.set(k, (Goods) o);
+				}
+			}
 
-		if (searchKey < 0) // If the item is not in the array
-		{
-			throw new ArrayIndexOutOfBoundsException("ÇØ´ç ¹°Ç°À» Ã£À» ¼ö ¾ø½À´Ï´Ù");
-		} else {
-			goodsArray[searchKey] = (Goods) o;
+		} catch (Exception e) {
+			throw new Exception("ë¬¼í’ˆ ì—†ìŒ");
 		}
+
 	}
 
 	@Override
 	// Print the entire contents to the screen
 	public void display() {
-		System.out.println(Arrays.toString(goodsArray));
+		for (Goods goods : goodsArray) {
+			System.out.println(goods);
+		}
 	}
 
 }
