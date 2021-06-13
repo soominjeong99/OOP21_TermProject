@@ -62,6 +62,6 @@ public class ManagerFrame extends JFrame {
 		lblNewLabel.setBounds(167, 68, 113, 40);
 		contentPane.add(lblNewLabel);
 		
-		
+	
 	}
 }
