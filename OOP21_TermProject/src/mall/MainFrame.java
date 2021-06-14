@@ -66,7 +66,7 @@ public class MainFrame extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
-		
+		 setVisible(true);
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
 		panel.setLayout(null);
@@ -92,7 +92,7 @@ public class MainFrame extends JFrame {
 		panel.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-	//			ManagerFrame.main(null);
+				ManagerFrame.main(null);
 			}
 		});
 
@@ -122,7 +122,6 @@ public class MainFrame extends JFrame {
 		FileInputStream in = null;
 		JFrame dialogframe = new JFrame();
 		Dialog dialog;
-
 		dialog = new Dialog(dialogframe, "주의", "데이터 불러오기에 실패했습니다. 새로운 데이터를 생성합니다.");
 		
 		try {
@@ -146,4 +145,3 @@ public class MainFrame extends JFrame {
 	}
 	*/
 }
-
