@@ -21,7 +21,7 @@ public class StockManaging extends StockManagerFrame  implements ActionListener,
 	MyFrame frame2 = new MyFrame();
 	JButton add = new JButton("상품 추가");
 	JButton edit = new JButton("상품 수정");
-	JButton delete = new JButton("싱픔 삭제");
+	JButton delete = new JButton("상픔 삭제");
 	JButton cancel = new JButton("취소");
 	JComboBox cb = new JComboBox();
 	private JLabel select = new JLabel("상품 선택");
