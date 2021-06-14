@@ -44,10 +44,10 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public StockRegister() {
-		setTitle("상품 등록"); // title
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("상품등록");
 		frame.setSize(500, 330);
-		frame.setLocation(500, 300);		
+		frame.setLocation(500, 300);
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);	
 		
 
 		JLabel pId = new JLabel("상품 ID :");

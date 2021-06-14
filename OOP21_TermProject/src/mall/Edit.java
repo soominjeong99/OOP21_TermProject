@@ -37,13 +37,13 @@ public class Edit extends StockManagerFrame implements ActionListener {
 		lblNewLabel.setBounds(20, 20, 47, 23);
 		frame3.getContentPane().add(lblNewLabel);
 		
-		eName.setBounds(275, 60, 105, 25);
+		eName.setBounds(275, 65, 105, 25);
 		frame3.getContentPane().add(eName);
 		
-		eNum.setBounds(275, 90, 105, 25);
+		eNum.setBounds(275, 95, 105, 25);
 		frame3.getContentPane().add(eNum);
 		
-		ePrice.setBounds(275, 120, 105, 25);
+		ePrice.setBounds(275, 125, 105, 25);
 		frame3.getContentPane().add(ePrice);
 		
 		eConfirm.setBounds(61, 222, 105, 25);
@@ -56,31 +56,31 @@ public class Edit extends StockManagerFrame implements ActionListener {
 		name.setBounds(12, 70, 57, 15);
 		frame3.getContentPane().add(name);
 		
-		JLabel age = new JLabel("상품 수량 : ");
-		age.setBounds(12, 100, 57, 15);
+		JLabel age = new JLabel("상품수량 : ");
+		age.setBounds(12, 100, 83, 15);
 		frame3.getContentPane().add(age);
 		
-		JLabel sex = new JLabel("상품 가격 : ");
-		sex.setBounds(12, 130, 57, 15);
+		JLabel sex = new JLabel("상품가격 : ");
+		sex.setBounds(12, 130, 83, 15);
 		frame3.getContentPane().add(sex);
 		
 		
 		tName = new JTextField();
 		tName.setEditable(false);
-		tName.setBounds(50, 70, 208, 21);
+		tName.setBounds(60, 70, 198, 21);
 		frame3.getContentPane().add(tName);
 		tName.setColumns(10);
 		
 		tNum = new JTextField();
 		tNum.setEditable(false);
 		tNum.setColumns(10);
-		tNum.setBounds(50, 100, 208, 21);
+		tNum.setBounds(73, 100, 185, 21);
 		frame3.getContentPane().add(tNum);
 		
 		tPrice = new JTextField();
 		tPrice.setEditable(false);
 		tPrice.setColumns(10);
-		tPrice.setBounds(50, 130, 208, 21);
+		tPrice.setBounds(73, 130, 185, 21);
 		frame3.getContentPane().add(tPrice);
 		
 		
