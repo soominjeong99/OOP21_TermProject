@@ -32,6 +32,7 @@ public class StockManaging extends JFrame {
 	 * Create the frame.
 	 */
 	public StockManaging() {
+		setTitle("상품 관리"); //title
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

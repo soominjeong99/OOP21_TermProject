@@ -9,10 +9,17 @@ import javax.swing.border.EmptyBorder;
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 
-public class StockManagerFrame extends JFrame {
-
+public class StockManagerFrame extends MyFrame {
+	static ArrayList<Goods> list = new ArrayList<Goods>(); 
 	private JPanel contentPane;
 
 	/**
@@ -34,7 +41,7 @@ public class StockManagerFrame extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public StockManagerFrame() {
+	public void StockManagerFrame() {
 		
 		setTitle("재고 관리창"); //title
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,4 +78,65 @@ public class StockManagerFrame extends JFrame {
 		btnNewButton_2.setBounds(172, 173, 118, 44);
 		contentPane.add(btnNewButton_2);
 	}
+	
+	public void fileLoad(String path){
+		FileInputStream fi = null;
+		InputStreamReader isr = null;
+		BufferedReader bfr = null;
+		StringTokenizer st = null;
+		
+		try{
+				list.clear();
+				fi = new FileInputStream(path);
+				isr = new InputStreamReader(fi);
+				bfr = new BufferedReader(isr);
+				String str = null;
+				while((str = bfr.readLine())!= null){
+					Goods g = new Goods();
+					st = new StringTokenizer(str,",");
+					g.setId(Integer.parseInt(st.nextToken()));
+					g.setgName(st.nextToken());
+					g.setStockNum(Integer.parseInt(st.nextToken()));
+					g.setgPrice(Integer.parseInt(st.nextToken()));
+	
+					list.add(g);
+				}
+		}catch(IOException e){
+			e.printStackTrace();
+		}finally{
+			try{
+				fi.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public void fileSave(String path){
+		 FileWriter fw = null;
+		 try{
+		   fw = new FileWriter(path);
+		   for(int i=0; i<list.size(); i++){
+			   fw.write(list.get(i).getId());
+			   fw.write(",");
+			   fw.write(list.get(i).getgName());
+			   fw.write(",");
+			   fw.write(list.get(i).getStockNum());
+			   fw.write(",");
+			   fw.write(list.get(i).getgPrice());
+			   fw.write("\r\n");
+		   }       
+	    }catch (Exception e) {
+	    	e.printStackTrace();
+	   }finally{
+			try{
+				fw.close();
+			}catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+
+
+	
 }
