@@ -53,9 +53,22 @@ public class ManagerFrame extends JFrame {
 		btnNewButton.setBounds(71, 143, 137, 50);
 		contentPane.add(btnNewButton);
 		
+		//고객 관리 페이지로 이동
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			UserListFrame.main(null);
+						}
+		});
+		
 		JButton btnNewButton_1 = new JButton("재고 관리");
 		btnNewButton_1.setBounds(240, 143, 137, 50);
 		contentPane.add(btnNewButton_1);
+		//재고 관리 페이지로 이동
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			StockMangerFrame.main(null);
+						}
+		});
 		
 		JLabel lblNewLabel = new JLabel("관리자 모드");
 		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 20));

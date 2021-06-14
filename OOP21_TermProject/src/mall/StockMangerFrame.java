@@ -13,7 +13,24 @@ import javax.swing.JList;
 public class StockMangerFrame extends JFrame {
 	ArrayList<Goods> goodsArray = new ArrayList<Goods>();// Array of goods
 	int itemCount = 0;
+	
+	private JPanel contentPane;
 
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					StockMangerFrame frame = new StockMangerFrame();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	
 	// Add
 	public void add(Object o) {
@@ -56,23 +73,6 @@ public class StockMangerFrame extends JFrame {
 
 	}
 
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					StockMangerFrame frame = new StockMangerFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
