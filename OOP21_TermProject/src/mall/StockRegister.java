@@ -46,46 +46,49 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 	public StockRegister() {
 		setTitle("상품 등록"); // title
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		frame.setSize(500, 330);
+		frame.setLocation(500, 300);		
+		
 
 		JLabel pId = new JLabel("상품 ID :");
-		pId.setBounds(27, 16, 90, 30);
+		pId.setBounds(27, 25, 90, 30);
 		frame.getContentPane().add(pId);
 
 		JLabel pName = new JLabel("상품 이름 :");
-		pName.setBounds(207, 16, 90, 30);
+		pName.setBounds(27, 65, 90, 30);
 		frame.getContentPane().add(pName);
 
 		JLabel pNum = new JLabel("상품 수량 :");
-		pNum.setBounds(27, 56, 90, 30);
+		pNum.setBounds(27, 105, 90, 30);
 		frame.getContentPane().add(pNum);
 
 		JLabel pPrice = new JLabel("상품 가격 :");
-		pPrice.setBounds(27, 96, 90, 30);
+		pPrice.setBounds(27, 145, 90, 30);
 		frame.getContentPane().add(pPrice);
 
 		id = new JTextField();
 		id.setColumns(10);
-		id.setBounds(280, 21, 62, 21);
+		id.setBounds(97, 30, 62, 21);
+		if(list.size() != 0){
+			id.setText((list.get(list.size()-1).getId()+1)+"");
+		}else{
+			id.setText(1001 + "");
+		}
 		frame.getContentPane().add(id);
-
-		stockNum = new JTextField();
-		stockNum.setColumns(10);
-		stockNum.setBounds(97, 61, 62, 21);
-		frame.getContentPane().add(stockNum);
 
 		gName = new JTextField();
 		gName.setColumns(10);
-		gName.setBounds(129, 101, 144, 21);
+		gName.setBounds(97, 70, 62, 21);
 		frame.getContentPane().add(gName);
-
+		
+		stockNum = new JTextField();
+		stockNum.setColumns(10);
+		stockNum.setBounds(97, 110, 62, 21);
+		frame.getContentPane().add(stockNum);
+		
 		gPrice = new JTextField();
 		gPrice.setColumns(10);
-		gPrice.setBounds(97, 187, 357, 21);
+		gPrice.setBounds(97, 150, 62, 21);
 		frame.getContentPane().add(gPrice);
 
 		bt1.setBounds(97, 232, 97, 40);
@@ -153,14 +156,12 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 							gPrice.setText(null);
 						} else if (check2 == 1) {
 							frame.setVisible(false);
-							super.StockManagerFrame();
 						}
 					}
 				}
 			}
 		} else if (e.getSource() == bt2) {
 			frame.dispose();
-			super.StockManagerFrame();
 		}
 	}
 
