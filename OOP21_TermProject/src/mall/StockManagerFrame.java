@@ -2,7 +2,6 @@ package mall;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -19,8 +18,10 @@ import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 
 public class StockManagerFrame extends MyFrame {
+
 	static ArrayList<Goods> list = new ArrayList<Goods>(); 
 	private JPanel contentPane;
+	MyFrame frame = new MyFrame();
 
 	/**
 	 * Launch the application.
@@ -41,7 +42,7 @@ public class StockManagerFrame extends MyFrame {
 	/**
 	 * Create the frame.
 	 */
-	public void StockManagerFrame() {
+	public StockManagerFrame() {
 		
 		setTitle("재고 관리창"); //title
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,7 +55,8 @@ public class StockManagerFrame extends MyFrame {
 		JButton btnNewButton = new JButton("상품 등록");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StockRegister.main(null);
+				frame.dispose();
+				StockRegister sr = new StockRegister();
 			}
 		});
 		btnNewButton.setBounds(172, 39, 118, 44);
@@ -63,7 +65,8 @@ public class StockManagerFrame extends MyFrame {
 		JButton btnNewButton_1 = new JButton("상품 관리");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StockManaging.main(null);
+				frame.dispose();
+				StockManaging sm = new StockManaging();
 			}
 		});
 		btnNewButton_1.setBounds(172, 107, 118, 44);
@@ -72,7 +75,8 @@ public class StockManagerFrame extends MyFrame {
 		JButton btnNewButton_2 = new JButton("상품 검색");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				StockSearch.main(null);
+				frame.dispose();
+				StockSearch ss = new StockSearch();
 			}
 		});
 		btnNewButton_2.setBounds(172, 173, 118, 44);
