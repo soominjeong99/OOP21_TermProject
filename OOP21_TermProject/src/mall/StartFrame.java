@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.FlowLayout;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +17,11 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 public class StartFrame extends JFrame {
-	ImageIcon icon = new ImageIcon("C:\\Users\\Com\\git\\OOP21_TermProject\\logo3.jpg"); //이미지 아이콘 객체 생성
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private JPanel contentPane;
 
 	/**
@@ -40,34 +44,36 @@ public class StartFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public StartFrame() {
+		ImageIcon icon = new ImageIcon("C:\\Users\\Com\\git\\OOP21_TermProject\\logo3.jpg"); //이미지 아이콘 객체 생성
+		setTitle("*쇼핑몰관리시스템*");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		Color b = new Color(230, 220, 202);
-		Image im = icon.getImage(); //뽑아온 이미지 객체 사이즈를 새롭게 만들기!
-		
-		ImageIcon icon2 = new ImageIcon(im);
+		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		Color b = new Color(230, 220, 202);
+		
+		Image im = icon.getImage(); //뽑아온 이미지 객체 사이즈를 새롭게 만들기!
+		ImageIcon icon2 = new ImageIcon(im);
 		JLabel img = new JLabel(icon2);
 		img.setBounds(93, 45, 248, 138);
 		contentPane.add(img);
 		contentPane.setBackground(b);
-		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("시작하기");
 		
-		btnNewButton.setBounds(166, 191, 113, 23);
-		btnNewButton.setBackground(b);
-		contentPane.add(btnNewButton);
-
-		btnNewButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new MainFrame();
-                setVisible(false); // 창 안보이게 하기 
-            }
-        });
-	}
-
+		JButton btnNewButton4 = new JButton("시작하기");
+		
+		btnNewButton4.setBounds(166, 191, 113, 23);
+		btnNewButton4.setBackground(b);
+		contentPane.add(btnNewButton4);
+		setLocationRelativeTo(null);
+		btnNewButton4.addActionListener(new ActionListener() {
+        @Override
+			public void actionPerformed(ActionEvent e) {
+			new MainFrame();
+			setVisible(false);
+			}
+		});
+}
 }
