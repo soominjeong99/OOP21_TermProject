@@ -89,6 +89,7 @@ class SignUpFrame extends JFrame implements ActionListener{
                             bw.close();
  
                             JOptionPane.showMessageDialog(null, "회원가입을 축하합니다.");
+                            new UserFrame();
                             dispose();
                             }else {
                                 JOptionPane.showMessageDialog(null, "회원가입에 실패하였습니다.");
