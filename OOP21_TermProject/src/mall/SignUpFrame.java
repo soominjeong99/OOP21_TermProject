@@ -100,6 +100,7 @@ class SignUpFrame extends JFrame implements ActionListener{
                     txtname.setText("");
                     txtemail.setText("");
                     txtaddr.setText("");
+                    dispose();
                 }
             }catch (IOException  ex){
                 JOptionPane.showMessageDialog(null, "½ÇÆÐ");
