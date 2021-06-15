@@ -4,7 +4,7 @@ import java.util.*;
 
 public class LoginManager {
 	CustomerManager customerManager;
-	ArrayList<String> loggedUser; // Customer로부터 login User의 name 받아옴
+	ArrayList<String> loggedUser; // Receive login user's name from customer
 
 	public LoginManager(CustomerManager customerManager)
 	{
@@ -14,10 +14,12 @@ public class LoginManager {
 	
 	public void login(int id, String pwd)
 	{
+		//Make sure ID and password are on the customers list
 		for (int i = 0; i < customerManager.customers.size(); i++)
 		{
 			Customer temp = customerManager.customers.get(i);
 			
+			// Matching ID with log in users
 			if (temp.getId() == id)
 			{
 				boolean found = false;
@@ -31,10 +33,12 @@ public class LoginManager {
 					}
 				}
 				
+				// if loggedUser already exist
 				if (found)
 				{
 					System.out.println("\n이미 로그인 되어 있습니다!");
 				}
+				// if new loggedUser - password matching 
 				else
 				{
 					if (temp.getPwd() != pwd)
@@ -50,10 +54,13 @@ public class LoginManager {
 	}
 
 	public void logout(int id) {
+		
+		//Make sure ID and password are on the customers list
 		for (int i = 0; i < customerManager.customers.size(); i++)
 		{
 			Customer temp = customerManager.customers.get(i);
 			
+			// Matching ID with log in users
 			if (temp.getId() == id)
 			{
 				boolean found = false;
@@ -67,10 +74,13 @@ public class LoginManager {
 					}
 				}
 				
+				// if user trying to log out is not logged in
 				if (!found)
 				{
 					System.out.println("\n로그인 되어 있지 않습니다!");
 				}
+				
+				// if logged in user is trying to log out
 				else
 				{
 					System.out.println(temp.getName() +" 님 로그아웃 하셨습니다!");
@@ -81,7 +91,7 @@ public class LoginManager {
 		}
 	}
 	
-	public void displayLoggedUser() { // 로그인 유저의 인덱스 받아오기
+	public void displayLoggedUser() { // Get the index of the logged in user
 		for (int i = 0; i < loggedUser.size(); i++)
 		{
 			System.out.println(loggedUser.get(i));

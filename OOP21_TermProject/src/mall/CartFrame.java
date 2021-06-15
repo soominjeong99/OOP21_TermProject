@@ -17,26 +17,28 @@ import javax.swing.JTable;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableCellRenderer;
 
+//Print shopping cart list as table
 public class CartFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public CartFrame() throws FileNotFoundException {
 		
-		String file = "Cart.txt";
+		String file = "Cart.txt"; //File Name
 		
 		String[] columns = new String[] {
 				"No.", "이름", "재고수량", "갯수", "가격", "총 가격"
 		};
 		
-		Scanner sc = new Scanner(new FileReader(file)); // cart database에서 읽어오기
+		Scanner sc = new Scanner(new FileReader(file)); // scan cart database
 
 		ArrayList<Cart> arrayCart = new ArrayList<Cart>();
 
 		while (sc.hasNextLine())
 		{
-			String temp = sc.nextLine();
+			String temp = sc.nextLine(); 
 			String[] split = temp.split("/");
 			
+			//casting
 			int id = Integer.parseInt(split[0]);
 			String name = split[1];
 			int num = Integer.parseInt(split[2]);

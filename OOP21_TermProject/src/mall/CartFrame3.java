@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+
+//Reads the shopping cart list from a file and prints it to the console
 public class CartFrame3 extends JFrame {
 	public static void main(String[] args) throws IOException {
 		String file = "Cart.txt";
@@ -18,6 +20,8 @@ public class CartFrame3 extends JFrame {
 		{
 			String temp = sc.nextLine();
 			String[] split = temp.split("/");
+			
+			//casting
 			int id = Integer.parseInt(split[0]);
 			String name = split[1];
 			int num = Integer.parseInt(split[2]);

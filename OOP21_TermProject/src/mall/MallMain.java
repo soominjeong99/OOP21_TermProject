@@ -21,6 +21,7 @@ public class MallMain {
 		main.mainMenu();
 	}
 
+	// Start
 	public void mainMenu()
 	{
 		System.out.println("[1] 로그인 \t [2] 회원가입");
@@ -28,11 +29,12 @@ public class MallMain {
 
 		switch (menu)
 		{
+		//Login - call LoginManager
 		case 1 :
 			System.out.println("ID를 입력하세요.");
 			int id = sc.nextInt();
 			System.out.println("PassWord를 입력하세요.");
-			String pwd = sc.nextLine().trim();
+			String pwd = sc.nextLine().trim(); // remove spaces
 			
 			this.id = id;
 			this.pwd = pwd;
@@ -40,15 +42,19 @@ public class MallMain {
 			loginManager.login(id, pwd);
 
 			break;
+			
+		// Sign up - call CustomerManager
 		case 2 :
 			customerManager.add(customer);
 
 			break;
 		}
-
+		
+		//Move to shopMenu
 		shopMenu();
 	}
 
+	//Shopping Menu
 	static void shopMenu() 
 	{
 		isNext = false;
@@ -62,21 +68,26 @@ public class MallMain {
 			
 			switch (selectMenu)
 			{
+			// goods list - Call goodsManager
 			case 1 :
 				goodsManager.display();
 				isNext = true;
 				break;
 				
+			// cart list - Call cartManager
 			case 2 : 
 				cartManager.display();
 				isNext = true;
 				break;
 				
+			// My account - Call customerManager
 			case 3 : 
 				customerManager.display();
 				isNext = true;
 				break;
 				
+				
+			// Logout - Call LoginManager	
 			case 4 :
 				loginManager.logout(id);
 				break;

@@ -11,12 +11,13 @@ import java.io.*;
 import java.text.DecimalFormat;
 import java.util.*;
 
-
+//Print the shopping cart list serially
 public class CartFrame2 extends JFrame {
 	private static final String goodsName = null;
 
 	public static void main(String[] args)
 	{
+		//Set Frame
 		JFrame jframe = new JFrame();
 		jframe.setBounds(50, 50, 500, 300);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,6 +40,7 @@ public class CartFrame2 extends JFrame {
 		
 		String[] temp = {"6", "¿øÇÇ½º", "5", "20000", "2", "40000"};
 		
+		//Casting
 		int id = Integer.parseInt(temp[0]);
 		String gName = temp[1];
 		int stockNum = Integer.parseInt(temp[2]);
