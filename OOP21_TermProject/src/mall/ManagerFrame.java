@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
@@ -33,28 +32,11 @@ public class ManagerFrame extends JFrame {
 	static UserListFrame frames1 = new UserListFrame(lineArray);
 	static GoodsManager frames2 = new GoodsManager();
 
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
-import javax.swing.JTextField;
-import javax.swing.WindowConstants;
-
-import java.awt.Font;
-import javax.swing.JLabel;
-
-public class ManagerFrame extends JFrame {
-
-	private JPanel contentPane;
-
-
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-
 			
 			public void run() {
 				try {
@@ -66,19 +48,13 @@ public class ManagerFrame extends JFrame {
 					BufferedReader bfReader = new BufferedReader(textRead);
 					String line = "";
 					
-					// null ì´ ì•„ë‹ë•Œê¹Œì§€ ë°˜ë³µí•œë‹¤.
+					// null ÀÌ ¾Æ´Ò¶§±îÁö ¹İº¹ÇÑ´Ù.
 					while ( (line = bfReader.readLine()) != null ) {
 					lineArray.add(line);
 					}
 					
 					frames2.setVisible(false);
 					frames1.setVisible(false);
-
-			public void run() {
-				try {
-					ManagerFrame frame = new ManagerFrame();
-					frame.setVisible(true);
-
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -88,33 +64,24 @@ public class ManagerFrame extends JFrame {
 
 	/**
 	 * Create the frame.
-
 	 * @return 
 	 */
 	
 	
 	public ManagerFrame() {
-		setTitle("*ë§¤ë‹ˆì €*");
+		setTitle("*¸Å´ÏÀú*");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-	 */
-	public ManagerFrame() {
-		setTitle("ê´€ë¦¬ì ë©”ì¸ ë©”ë‰´ì°½"); //title
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
 		setLocationRelativeTo(null);
-		JLabel lblNewLabel = new JLabel("ë§¤ë‹ˆì € ê´€ë¦¬ì°½");
+		JLabel lblNewLabel = new JLabel("¸Å´ÏÀú °ü¸®Ã¢");
 		lblNewLabel.setBounds(174, 33, 90, 46);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("ìœ ì € ê´€ë¦¬");
+		JButton btnNewButton = new JButton("À¯Àú °ü¸®");
 		btnNewButton.setBounds(83, 115, 109, 40);
 		contentPane.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -126,7 +93,7 @@ public class ManagerFrame extends JFrame {
 		});
 		
 		
-		JButton btnNewButton_1 = new JButton("ì¬ê³  ê´€ë¦¬");
+		JButton btnNewButton_1 = new JButton("Àç°í °ü¸®");
 		btnNewButton_1.setBounds(249, 115, 109, 40);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -141,6 +108,7 @@ public class ManagerFrame extends JFrame {
 	public void UserListFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		setTitle("*È¸¿ø¸®½ºÆ®*");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -149,11 +117,11 @@ public class ManagerFrame extends JFrame {
 		setLocationRelativeTo(null);
 		
 		System.out.print(lineArray);
-		JLabel lblNewLabel_1 = new JLabel("íšŒì›ë¦¬ìŠ¤íŠ¸");
+		JLabel lblNewLabel_1 = new JLabel("È¸¿ø¸®½ºÆ®");
 		lblNewLabel_1.setBounds(168, 10, 90, 31);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("ì•„ì´ë””   |   ë¹„ë°€ë²ˆí˜¸   |   ì´ë¦„   |   ì´ë©”ì¼   |   ì£¼ì†Œ ");
+		JLabel lblNewLabel_2 = new JLabel("¾ÆÀÌµğ   |   ºñ¹Ğ¹øÈ£   |   ÀÌ¸§   |   ÀÌ¸ŞÀÏ   |   ÁÖ¼Ò ");
 		lblNewLabel_2.setBounds(77, 46, 350, 20);
 		contentPane.add(lblNewLabel_2);
 		
@@ -161,7 +129,7 @@ public class ManagerFrame extends JFrame {
 		textArea.setBounds(77, 76, 292, 133);
 		contentPane.add(textArea);
 		
-		JButton btnNewButton_1 = new JButton("íšŒì› ì¶œë ¥í•˜ê¸°");
+		JButton btnNewButton_1 = new JButton("È¸¿ø Ãâ·ÂÇÏ±â");
 		btnNewButton_1.setBounds(168, 213, 109, 40);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -174,35 +142,4 @@ public class ManagerFrame extends JFrame {
 	
 	}
 	
-
-		
-		JButton btnNewButton = new JButton("ê³ ê° ê´€ë¦¬");
-		btnNewButton.setBounds(71, 143, 137, 50);
-		contentPane.add(btnNewButton);
-		
-		//ê³ ê° ê´€ë¦¬ í˜ì´ì§€ë¡œ ì´ë™
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			UserListFrame.main(null);
-						}
-		});
-		
-		JButton btnNewButton_1 = new JButton("ì¬ê³  ê´€ë¦¬");
-		btnNewButton_1.setBounds(240, 143, 137, 50);
-		contentPane.add(btnNewButton_1);
-		//ì¬ê³  ê´€ë¦¬ í˜ì´ì§€ë¡œ ì´ë™
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			StockManagerFrame.main(null);
-						}
-		});
-		
-		JLabel lblNewLabel = new JLabel("ê´€ë¦¬ì ëª¨ë“œ");
-		lblNewLabel.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 20));
-		lblNewLabel.setBounds(167, 68, 113, 40);
-		contentPane.add(lblNewLabel);
-		
-	
-	}
-
 }
