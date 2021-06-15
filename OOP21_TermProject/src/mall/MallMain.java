@@ -6,7 +6,8 @@ public class MallMain {
 	static GoodsManager goodsManager = new GoodsManager();
 	static CustomerManager customerManager = new CustomerManager();
 	static CartManager cartManager = new CartManager();
-	static LoginManager loginManager = new LoginManager();
+	static LoginManager loginManager = new LoginManager(customerManager);
+	static Customer customer = new Customer();
 
 	static boolean isNext = false;
 	public static int id;
@@ -40,7 +41,7 @@ public class MallMain {
 
 			break;
 		case 2 :
-			customerManager.add(customerManager.inputAdd());
+			customerManager.add(customer);
 
 			break;
 		}
@@ -62,21 +63,19 @@ public class MallMain {
 			switch (selectMenu)
 			{
 			case 1 :
-				goodsManager.goodsMenu();
+				goodsManager.display();
 				isNext = true;
 				break;
 				
 			case 2 : 
-				cartManager.cartMenu();
+				cartManager.display();
 				isNext = true;
 				break;
 				
 			case 3 : 
-				customerManager.customerMenu();
+				customerManager.display();
 				isNext = true;
 				break;
-				
-				//요 부분은 임시입니다!
 				
 			case 4 :
 				loginManager.logout(id);
