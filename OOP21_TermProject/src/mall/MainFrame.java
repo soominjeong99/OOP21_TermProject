@@ -16,18 +16,18 @@ import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.awt.event.ActionEvent;
 
-class Dialog extends JDialog {
+class Dialog extends JDialog{
 	JButton ok = new JButton("OK");
 	JLabel caution = new JLabel();
-
+	
 	public Dialog(JFrame frame, String title, String text) {
-		super(frame, title);
+		super(frame,title);
 		setLayout(new FlowLayout());
 		caution.setText(text);
 		add(caution);
 		add(ok);
-		setSize(300, 100);
-
+		setSize(300,100);
+		
 		ok.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -39,7 +39,6 @@ class Dialog extends JDialog {
 public class MainFrame extends JFrame {
 
 	private JPanel contentPane;
-
 	/**
 	 * Launch the application.
 	 */
@@ -55,80 +54,80 @@ public class MainFrame extends JFrame {
 			}
 		});
 	}
-
+	
 	/**
 	 * Create the frame.
 	 */
 	public MainFrame() {
-		setTitle("*ì˜¨ë¼ì¸ ì‡¼í•‘ëª°*");
+		setTitle("*¿Â¶óÀÎ ¼îÇÎ¸ô*");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(1, 0, 0, 0));
-
 		 setVisible(true);
-
 		JPanel panel = new JPanel();
 		contentPane.add(panel);
 		panel.setLayout(null);
-
-		// ì°½ ê°€ìš´ë° ìœ„ì¹˜
-		setLocationRelativeTo(null);
-
-		JButton btnNewButton = new JButton("ì‚¬ìš©ì");
+		
+		//Ã¢ °¡¿îµ¥ À§Ä¡
+		setLocationRelativeTo(null); 
+		
+		JButton btnNewButton = new JButton("»ç¿ëÀÚ");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				UserFrame.main(null);
+			new UserFrame();
+			
+			setVisible(false);
 			}
 		});
-		btnNewButton.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 15));
+		btnNewButton.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		btnNewButton.setBounds(145, 107, 130, 23);
 		panel.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("ê´€ë¦¬ì");
-		btnNewButton_1.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 15));
+		
+		JButton btnNewButton_1 = new JButton("°ü¸®ÀÚ");
+		btnNewButton_1.setFont(new Font("±¼¸²", Font.PLAIN, 15));
 		btnNewButton_1.setBounds(145, 140, 130, 23);
 		panel.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				ManagerFrame.main(null);
+				new ManagerFrame();
 			}
 		});
 
-		JButton button = new JButton("ì¢…ë£Œ");
+		
+		JButton button = new JButton("Á¾·á");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});
-		button.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 13));
+		button.setFont(new Font("±¼¸²", Font.PLAIN, 13));
 		button.setBounds(163, 199, 97, 23);
 		panel.add(button);
-
-		JLabel lblNewLabel = new JLabel("ì›í•˜ì‹œëŠ” ì‘ì—…ì„ ì„ íƒí•´ ì£¼ì„¸ìš”.");
-		lblNewLabel.setFont(new Font("ë‚˜ëˆ”ë°”ë¥¸íœ", Font.PLAIN, 13));
+		
+		JLabel lblNewLabel = new JLabel("¿øÇÏ½Ã´Â ÀÛ¾÷À» ¼±ÅÃÇØ ÁÖ¼¼¿ä.");
+		lblNewLabel.setFont(new Font("³ª´®¹Ù¸¥Ææ", Font.PLAIN, 13));
 		lblNewLabel.setBounds(99, 48, 229, 38);
 		panel.add(lblNewLabel);
-
-		// ê¸°ì¡´ì˜ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¤ê¸° ìœ„í•œ FileInputStream inê³¼ ë§¤ë‹ˆì € ê°ì²´
-
+		
+		//±âÁ¸ÀÇ µ¥ÀÌÅÍ¸¦ °¡Á®¿À±â À§ÇÑ FileInputStream in°ú ¸Å´ÏÀú °´Ã¼
+		
 	}
 
 	/*
-
 	public static Management returnManager() {
 		Management manager = null;
 		FileInputStream in = null;
 		JFrame dialogframe = new JFrame();
 		Dialog dialog;
-		dialog = new Dialog(dialogframe, "ì£¼ì˜", "ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. ìƒˆë¡œìš´ ë°ì´í„°ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.");
+		dialog = new Dialog(dialogframe, "ÁÖÀÇ", "µ¥ÀÌÅÍ ºÒ·¯¿À±â¿¡ ½ÇÆĞÇß½À´Ï´Ù. »õ·Î¿î µ¥ÀÌÅÍ¸¦ »ı¼ºÇÕ´Ï´Ù.");
 		
 		try {
 			in = new FileInputStream("information.txt");
 		} catch (Exception e) {
-			System.out.print("íŒŒì¼ ì½ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+			System.out.print("ÆÄÀÏ ÀĞ±â¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
 			manager = new Management();
 			dialog.setVisible(true);
 		}
@@ -136,7 +135,7 @@ public class MainFrame extends JFrame {
 		try {
 			manager = new Management(in);
 		} catch (Exception e1) {
-			System.out.println("íŒŒì¼ì½ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤.");
+			System.out.println("ÆÄÀÏÀĞ±â¿¡ ½ÇÆĞÇß½À´Ï´Ù.");
 			manager = new Management();
 			dialog.setVisible(true);
 		}
@@ -145,22 +144,4 @@ public class MainFrame extends JFrame {
 		return manager;
 	}
 	*/
-
-	 * public static Management returnManager() { Management manager = null;
-	 * FileInputStream in = null; JFrame dialogframe = new JFrame(); Dialog dialog;
-	 * 
-	 * dialog = new Dialog(dialogframe, "ì£¼ì˜", "ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤. ìƒˆë¡œìš´ ë°ì´í„°ë¥¼ ìƒì„±í•©ë‹ˆë‹¤.");
-	 * 
-	 * try { in = new FileInputStream("information.txt"); } catch (Exception e) {
-	 * System.out.print("íŒŒì¼ ì½ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤."); manager = new Management();
-	 * dialog.setVisible(true); }
-	 * 
-	 * try { manager = new Management(in); } catch (Exception e1) {
-	 * System.out.println("íŒŒì¼ì½ê¸°ì— ì‹¤íŒ¨í–ˆìŠµë‹ˆë‹¤."); manager = new Management();
-	 * dialog.setVisible(true); }
-	 * 
-	 * 
-	 * return manager; }
-	 */
-
 }
