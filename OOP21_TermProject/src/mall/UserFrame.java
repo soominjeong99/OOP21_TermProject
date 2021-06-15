@@ -22,7 +22,8 @@ class UserFrame extends JFrame{
       JButton singup = new JButton("회원가입");
       jPanel.add(login);
       jPanel.add(singup);
-    
+      
+      JButton Cart = new JButton("장바구니 가기"); // 로그인 이후
       
       
       login.addActionListener(new ActionListener() {

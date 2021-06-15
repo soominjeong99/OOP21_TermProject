@@ -31,6 +31,8 @@ public class loginFrame extends JFrame {
 				if (id.equals(txtID.getText()) && pass.equals(txtPass.getText())) {
 
 					JOptionPane.showMessageDialog(null, "로그인 성공");
+					new UserFrameLogin();
+					setVisible(false);
 				} else {
 
 					JOptionPane.showMessageDialog(null, " 로그인 실패 ");
