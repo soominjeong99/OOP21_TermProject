@@ -54,7 +54,7 @@ Goods goods;
   public int getPrice() {
      return gPrice;
      }
-  Cart(int id_code,String name, int num, int buyNumber,int perPrice,int tolPrice){  // 생성자 
+  Cart(int id_code,String name, int num, int buyNumber,int perPrice,int tolPrice){  // �깮�꽦�옄 
         id = id_code;                 
         gName=name;
         stockNum = num;
@@ -63,10 +63,9 @@ Goods goods;
         totalPrice = tolPrice;
     }     
 
-/*  public String toString(){
+  public String toString() {
      return  goods.id+"\t"+ goods.gName+"\t"+goods.stockNum+"\t"+
            buyNum+"\t"+goods.gPrice+"\t"+totalPrice();
      }
-*/
 
 }
