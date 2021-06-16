@@ -6,6 +6,12 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
+/*
+ * Frame that users can login and signup
+ * 1. loginFrame
+ * 2. SignUpFrame
+ */
+
 class UserFrame extends JFrame {
 	private JPanel contentPane;
 
@@ -35,9 +41,6 @@ class UserFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// setSize(500, 300);
-
-		// add(jPanel);
 
 		JButton login = new JButton("로그인");
 		login.setBounds(172, 60, 118, 44);
@@ -49,6 +52,7 @@ class UserFrame extends JFrame {
 
 		JButton Cart = new JButton("장바구니 가기"); // 로그인 이후
 
+		//if user clicks login button
 		login.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -56,6 +60,8 @@ class UserFrame extends JFrame {
 				setVisible(false); // 창 안보이게 하기
 			}
 		});
+		
+		//if user clicks signup button
 		singup.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

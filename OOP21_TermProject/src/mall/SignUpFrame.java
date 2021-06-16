@@ -5,6 +5,7 @@ import java.io.*;
 import java.awt.*;
 import javax.swing.*;
 
+//Sign up
 class SignUpFrame extends JFrame implements ActionListener {
 
 	JPanel panel;

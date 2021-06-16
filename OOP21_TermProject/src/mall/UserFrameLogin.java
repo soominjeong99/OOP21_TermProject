@@ -7,8 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//사용자 로그인 후 나타나는페이지
-//쇼핑, 장바구니, 로그아웃
+/*
+ * Frame that appears after user login
+ * 1. Shopping -> Shopping
+ * 2. Cart -> CartFrame2
+ * 3. Logout
+ */
+
 public class UserFrameLogin extends JFrame {
 
 	private JPanel contentPane;
@@ -23,6 +28,7 @@ public class UserFrameLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		//Button for shopping
 		JButton shopping = new JButton("쇼핑");
 		shopping.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -33,6 +39,7 @@ public class UserFrameLogin extends JFrame {
 		shopping.setBounds(172, 39, 118, 44);
 		contentPane.add(shopping);
 
+		//Button for going cart
 		JButton cart = new JButton("장바구니");
 		cart.addActionListener(new ActionListener() {
 			@Override
@@ -44,6 +51,7 @@ public class UserFrameLogin extends JFrame {
 		cart.setBounds(172, 107, 118, 44);
 		contentPane.add(cart);
 
+		//Button for logging out
 		JButton logout = new JButton("로그아웃");
 		logout.addActionListener(new ActionListener() {
 			@Override

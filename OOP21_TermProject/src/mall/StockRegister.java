@@ -65,6 +65,7 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 		pPrice.setBounds(27, 145, 90, 30);
 		frame.getContentPane().add(pPrice);
 
+		//Goods ID is automatically assigned and entered
 		id = new JTextField();
 		id.setColumns(10);
 		id.setBounds(97, 30, 62, 21);
@@ -75,24 +76,29 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 		}
 		frame.getContentPane().add(id);
 
+		//Enter goods name
 		gName = new JTextField();
 		gName.setColumns(10);
 		gName.setBounds(97, 70, 62, 21);
 		frame.getContentPane().add(gName);
 
+		//Enter the number of goods
 		stockNum = new JTextField();
 		stockNum.setColumns(10);
 		stockNum.setBounds(97, 110, 62, 21);
 		frame.getContentPane().add(stockNum);
 
+		//Enter the price of goods
 		gPrice = new JTextField();
 		gPrice.setColumns(10);
 		gPrice.setBounds(97, 150, 62, 21);
 		frame.getContentPane().add(gPrice);
 
+		//Button for register
 		bt1.setBounds(97, 232, 97, 40);
 		frame.getContentPane().add(bt1);
 
+		//Button for cancel
 		bt2.setBounds(280, 232, 97, 40);
 		frame.getContentPane().add(bt2);
 
@@ -110,6 +116,7 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 			String goodsNum = stockNum.getText();
 			String goodsPrice = gPrice.getText();
 
+			//if there is blank
 			if (goodsId.equals("")) {
 				JOptionPane.showMessageDialog(this, "상품 ID을 입력해 주세요", "메시지", JOptionPane.INFORMATION_MESSAGE);
 			} else if (goodsName.equals("")) {
@@ -119,11 +126,13 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 			} else if (goodsPrice.equals("")) {
 				JOptionPane.showMessageDialog(this, "상품 가격를 입력해 주세요", "메시지", JOptionPane.INFORMATION_MESSAGE);
 			} else {
+				//if there is the same ID
 				for (int i = 0; i < list.size(); i++) {
 					if (goodsId.equals(list.get(i).getId())) {
 						JOptionPane.showMessageDialog(this, "동일한 상품ID가 있습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
+				//Defensive code is used to prevent incorrect input from users.
 				if (!integerOrNot(goodsId)) {
 					JOptionPane.showMessageDialog(this, "상품 ID 는 문자를 입력할 수 없습니다.", "메시지",
 							JOptionPane.INFORMATION_MESSAGE);
@@ -134,6 +143,7 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 					JOptionPane.showMessageDialog(this, "상품 가격은 문자를 입력할 수 없습니다.", "메시지",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
+					//Confirm process
 					int check = JOptionPane
 							.showConfirmDialog(this,
 									"입력한 내용이 맞습니까?\n" + "상품 ID : " + goodsId + "\n상품 이름 : " + goodsName + "\n상품 수량 : "
@@ -165,7 +175,7 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 		}
 	}
 
-	public boolean integerOrNot(String strData) { // 입력값이 숫자인지 문자인지 판별 :
+	public boolean integerOrNot(String strData) { // Check input value is integer of character
 		char[] charData = strData.toCharArray();
 		boolean check = true;
 		while (check) {

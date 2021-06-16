@@ -19,8 +19,8 @@ import javax.swing.border.EmptyBorder;
 public class StockSearch extends StockManagerFrame implements ActionListener {
 
 	MyFrame frame5 = new MyFrame();
-	JButton sID = new JButton("상품 ID");
-	JButton sName = new JButton("상품명");
+	JButton sID = new JButton("상품 ID"); //Button for searching goods ID
+	JButton sName = new JButton("상품명"); //Button for searching goods name 
 	// JButton sAll = new JButton("전체 상품");
 	JButton sCancel = new JButton("취소");
 	JTextArea textArea = new JTextArea();
@@ -89,6 +89,7 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 		int dataCnt = 1;
 		String[] nameCollection = null;
 		String nameCode = null;
+		//Searching goods ID
 		if (e.getSource() == sID) {
 			String code = JOptionPane.showInputDialog("검색할 상품ID을 입력하세요");
 			if (code == null) {
@@ -104,13 +105,15 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 					}
 					dataCnt++;
 				}
-				if (dataCnt == list.size() + 1) {
+				if (dataCnt == list.size() + 1) { //if there is no matching goods
 					JOptionPane.showMessageDialog(this, "일치하는 상품이 없습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 				}
-			} else {
+			} else { //if there is no registered goods
 				JOptionPane.showMessageDialog(this, "등록된 상품이 없습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 			}
-		} else if (e.getSource() == sName) {
+		}
+		//Searching goods name
+		else if (e.getSource() == sName) {
 			int cnt = 0;
 			String name = JOptionPane.showInputDialog("검색할 상품명을 입력하세요");
 			if (name == null) {
@@ -118,7 +121,7 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 			}
 			if (list.size() != 0) {
 				for (int i = 0; i < list.size(); i++) {
-					if (name.equals(list.get(i).getgName())) {
+					if (name.equals(list.get(i).getgName())) { //if input name and registered name are same
 						cnt++;
 					}
 				}
@@ -131,6 +134,7 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 							namecnt++;
 						}
 					}
+					//if there are goods that have the same name
 					nameCode = (String) JOptionPane.showInputDialog(this, "같은 상품명이 존재합니다.\n", "메시지",
 							JOptionPane.INFORMATION_MESSAGE, null, nameCollection, nameCollection[0]);
 					if (nameCode == null) {
@@ -154,11 +158,11 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 						}
 						dataCnt++;
 					}
-					if (dataCnt == list.size() + 1) {
+					if (dataCnt == list.size() + 1) {//if there is no matching goods
 						JOptionPane.showMessageDialog(this, "일치하는 상품이 없습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
-			} else {
+			} else {//if there is no registered goods
 				JOptionPane.showMessageDialog(this, "등록된 상품이 없습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 			}
 			// else if(e.getSource() == sAll){

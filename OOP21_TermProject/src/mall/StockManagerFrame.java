@@ -17,6 +17,13 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 import java.awt.event.ActionEvent;
 
+/*
+ * Inventory Management screen
+ * 1.StockRegister
+ * 2.StockManaging
+ * 3.StockSearch
+ */
+
 public class StockManagerFrame extends MyFrame {
 
 	static ArrayList<Goods> list = new ArrayList<Goods>();
@@ -52,6 +59,7 @@ public class StockManagerFrame extends MyFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
+		//Button for registering goods
 		JButton btnNewButton = new JButton("상품 등록");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -62,6 +70,7 @@ public class StockManagerFrame extends MyFrame {
 		btnNewButton.setBounds(172, 39, 118, 44);
 		contentPane.add(btnNewButton);
 
+		//Button for managing goods
 		JButton btnNewButton_1 = new JButton("상품 관리");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,6 +81,7 @@ public class StockManagerFrame extends MyFrame {
 		btnNewButton_1.setBounds(172, 107, 118, 44);
 		contentPane.add(btnNewButton_1);
 
+		//Button for searching goods
 		JButton btnNewButton_2 = new JButton("상품 검색");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -83,6 +93,7 @@ public class StockManagerFrame extends MyFrame {
 		contentPane.add(btnNewButton_2);
 	}
 
+	//Loading file
 	public void fileLoad(String path) {
 		FileInputStream fi = null;
 		InputStreamReader isr = null;
@@ -116,6 +127,7 @@ public class StockManagerFrame extends MyFrame {
 		}
 	}
 
+	//Saving file
 	public void fileSave(String path) {
 		FileWriter fw = null;
 		try {

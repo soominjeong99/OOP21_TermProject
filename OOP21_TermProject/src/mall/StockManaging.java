@@ -19,10 +19,10 @@ import javax.swing.border.EmptyBorder;
 public class StockManaging extends StockManagerFrame implements ActionListener, ItemListener {
 
 	MyFrame frame2 = new MyFrame();
-	JButton add = new JButton("상품 추가");
-	JButton edit = new JButton("상품 수정");
-	JButton delete = new JButton("상품 삭제");
-	JButton cancel = new JButton("취소");
+	JButton add = new JButton("상품 추가"); //Button for adding goods
+	JButton edit = new JButton("상품 수정"); //Button for editing goods
+	JButton delete = new JButton("상품 삭제"); //Button for deleting goods
+	JButton cancel = new JButton("취소"); //Button for canceling
 	JComboBox cb = new JComboBox();
 	private JLabel select = new JLabel("상품 선택");
 	private final JTextArea productInfo = new JTextArea();
@@ -87,6 +87,7 @@ public class StockManaging extends StockManagerFrame implements ActionListener, 
 		frame2.setVisible(true);
 	}
 
+	//Select goods through spinner
 	public void itemStateChanged(ItemEvent ie) {
 		if (cb.getSelectedIndex() != 0) {
 			int select = cb.getSelectedIndex() - 1;
@@ -96,7 +97,8 @@ public class StockManaging extends StockManagerFrame implements ActionListener, 
 			productInfo.setText(null);
 		}
 	}
-
+	
+	//Edit, delete, add selected goods through spanner
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == edit) {
 			int select = cb.getSelectedIndex();

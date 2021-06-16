@@ -8,7 +8,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-//로그인 프레임
+/*
+ * LoginFrame
+ * if login success, go to 'UserFrameLogin'
+ */
 public class loginFrame extends JFrame {
 
 	public loginFrame() {
@@ -37,6 +40,7 @@ public class loginFrame extends JFrame {
 					BufferedReader bos = new BufferedReader(new FileReader("members.txt"));
 					while ((s = bos.readLine()) != null) {
 						array = s.split("/");
+						//Check if the user is a registered user
 						if (txtID.getText().equals(array[0]) && txtPass.getText().equals(array[1])) {
 							JOptionPane.showMessageDialog(null, "로그인 성공");
 							new UserFrameLogin();

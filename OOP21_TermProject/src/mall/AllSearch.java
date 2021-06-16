@@ -8,6 +8,7 @@ import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumnModel;
 
+//
 public class AllSearch extends StockManagerFrame {
 	MyFrame frame5 = new MyFrame();
 	private JTable table_1;
