@@ -54,6 +54,26 @@ Goods goods;
   public int getPrice() {
      return gPrice;
      }
+  
+  public void setId(int id) {
+	     this.id = id;
+	     }
+	  public void setStockNum(int stockNum) {
+	     this.stockNum = stockNum;
+	     }
+	  public void setBuyNum(int buyNum) {
+	     this.buyNum = buyNum;
+	     }
+	  public void setTotalPrice(int totalPrice) {
+	     this.totalPrice = totalPrice;
+	  }
+	  public void setName(String name) {
+	     this.gName = name;
+	     }
+	  public void setPrice(int gPrice) {
+	     this.gPrice = gPrice;
+	     }
+	  
   Cart(int id_code,String name, int num, int buyNumber,int perPrice,int tolPrice){  // �깮�꽦�옄 
         id = id_code;                 
         gName=name;
