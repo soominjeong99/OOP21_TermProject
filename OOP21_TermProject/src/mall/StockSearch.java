@@ -21,7 +21,7 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 	MyFrame frame5 = new MyFrame();
 	JButton sID = new JButton("상품 ID"); //Button for searching goods ID
 	JButton sName = new JButton("상품명"); //Button for searching goods name 
-	// JButton sAll = new JButton("전체 상품");
+	JButton sAll = new JButton("재고 수량");
 	JButton sCancel = new JButton("취소");
 	JTextArea textArea = new JTextArea();
 
@@ -61,12 +61,11 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 		sName.setBounds(354, 82, 95, 32);
 		frame5.getContentPane().add(sName);
 
-		/*
-		 * sAll.setBounds(354, 124, 95, 32);
-		 * 
-		 * frame5.getContentPane().add(sAll);
-		 */
-		sCancel.setBounds(354, 124, 95, 32);
+	
+		 sAll.setBounds(354, 124, 95, 32);
+		 frame5.getContentPane().add(sAll);
+		 
+		sCancel.setBounds(354, 166, 95, 32);
 		frame5.getContentPane().add(sCancel);
 
 		textArea.setEditable(false);
@@ -81,7 +80,7 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 
 		sID.addActionListener(this);
 		sName.addActionListener(this);
-		// sAll.addActionListener(this);
+		sAll.addActionListener(this);
 		sCancel.addActionListener(this);
 	}
 
@@ -165,8 +164,10 @@ public class StockSearch extends StockManagerFrame implements ActionListener {
 			} else {//if there is no registered goods
 				JOptionPane.showMessageDialog(this, "등록된 상품이 없습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 			}
-			// else if(e.getSource() == sAll){
-			// AllSearch al = new AllSearch();
+		}
+			else if(e.getSource() == sAll){
+			GoodsManager gm = new GoodsManager();
+
 		} else if (e.getSource() == sCancel) {
 			frame5.dispose();
 		}

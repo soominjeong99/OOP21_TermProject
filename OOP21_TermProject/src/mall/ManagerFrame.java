@@ -28,7 +28,7 @@ public class ManagerFrame extends JFrame {
 	private JPanel contentPane;
 
 	static UserListFrame frames1 = new UserListFrame(lineArray);
-	static GoodsManager frames2 = new GoodsManager();
+	static StockManagerFrame frames2 = new StockManagerFrame();
 
 	/**
 	 * Launch the application.
@@ -95,7 +95,7 @@ public class ManagerFrame extends JFrame {
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new GoodsManager();
+				new StockManagerFrame();
 				frames2.setVisible(true);
 				setVisible(false);
 			}
