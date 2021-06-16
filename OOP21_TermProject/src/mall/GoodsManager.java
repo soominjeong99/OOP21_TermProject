@@ -17,20 +17,21 @@ import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
 //Managing Goods
-public class GoodsManager extends JFrame implements Manager  {
+public class GoodsManager extends JFrame implements Manager {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					GoodsManager frames = new GoodsManager();
 					frames.setVisible(true);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		});
 	}
+
 	/**
 	 * 
 	 */
@@ -60,7 +61,7 @@ public class GoodsManager extends JFrame implements Manager  {
 
 			}
 		} catch (Exception e) {
-			
+
 		}
 
 	}
@@ -90,6 +91,7 @@ public class GoodsManager extends JFrame implements Manager  {
 			System.out.println(goods);
 		}
 	}
+
 	public GoodsManager() {
 		setTitle("*재고관리*");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -99,37 +101,27 @@ public class GoodsManager extends JFrame implements Manager  {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-		
-	
+
 		JLabel lblNewLabel_1 = new JLabel("재고관리");
 		lblNewLabel_1.setBounds(184, 10, 90, 31);
 		contentPane.add(lblNewLabel_1);
-	
-		
+
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(77, 51, 292, 152);
 		contentPane.add(textArea);
-		
+
 		JButton btnNewButton_1 = new JButton("재고 출력하기");
 		btnNewButton_1.setBounds(151, 207, 138, 31);
 		contentPane.add(btnNewButton_1);
-	
-		
-		
+
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 for(int j = 0; j < goodsArray.size() ; j++) {
-					  textArea.append("" + goodsArray.get(j)  + "\n");
-				  }
+				for (int j = 0; j < goodsArray.size(); j++) {
+					textArea.append("" + goodsArray.get(j) + "\n");
+				}
 			}
 		});
-		
-		
-		
 
-	
-		 
-		
 	}
 
 }

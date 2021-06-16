@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 
 public class StockManagerFrame extends MyFrame {
 
-	static ArrayList<Goods> list = new ArrayList<Goods>(); 
+	static ArrayList<Goods> list = new ArrayList<Goods>();
 	private JPanel contentPane;
 	MyFrame frame = new MyFrame();
 
@@ -43,15 +43,15 @@ public class StockManagerFrame extends MyFrame {
 	 * Create the frame.
 	 */
 	public StockManagerFrame() {
-		
-		setTitle("재고 관리창"); //title
+
+		setTitle("재고 관리창"); // title
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnNewButton = new JButton("상품 등록");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -61,7 +61,7 @@ public class StockManagerFrame extends MyFrame {
 		});
 		btnNewButton.setBounds(172, 39, 118, 44);
 		contentPane.add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("상품 관리");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -71,7 +71,7 @@ public class StockManagerFrame extends MyFrame {
 		});
 		btnNewButton_1.setBounds(172, 107, 118, 44);
 		contentPane.add(btnNewButton_1);
-		
+
 		JButton btnNewButton_2 = new JButton("상품 검색");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -82,65 +82,63 @@ public class StockManagerFrame extends MyFrame {
 		btnNewButton_2.setBounds(172, 173, 118, 44);
 		contentPane.add(btnNewButton_2);
 	}
-	
-	public void fileLoad(String path){
+
+	public void fileLoad(String path) {
 		FileInputStream fi = null;
 		InputStreamReader isr = null;
 		BufferedReader bfr = null;
 		StringTokenizer st = null;
-		
-		try{
-				list.clear();
-				fi = new FileInputStream(path);
-				isr = new InputStreamReader(fi);
-				bfr = new BufferedReader(isr);
-				String str = null;
-				while((str = bfr.readLine())!= null){
-					Goods g = new Goods();
-					st = new StringTokenizer(str,",");
-					g.setId(Integer.parseInt(st.nextToken()));
-					g.setgName(st.nextToken());
-					g.setStockNum(Integer.parseInt(st.nextToken()));
-					g.setgPrice(Integer.parseInt(st.nextToken()));
-	
-					list.add(g);
-				}
-		}catch(IOException e){
+
+		try {
+			list.clear();
+			fi = new FileInputStream(path);
+			isr = new InputStreamReader(fi);
+			bfr = new BufferedReader(isr);
+			String str = null;
+			while ((str = bfr.readLine()) != null) {
+				Goods g = new Goods();
+				st = new StringTokenizer(str, ",");
+				g.setId(Integer.parseInt(st.nextToken()));
+				g.setgName(st.nextToken());
+				g.setStockNum(Integer.parseInt(st.nextToken()));
+				g.setgPrice(Integer.parseInt(st.nextToken()));
+
+				list.add(g);
+			}
+		} catch (IOException e) {
 			e.printStackTrace();
-		}finally{
-			try{
+		} finally {
+			try {
 				fi.close();
-			}catch(IOException e){
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	public void fileSave(String path){
-		 FileWriter fw = null;
-		 try{
-		   fw = new FileWriter(path);
-		   for(int i=0; i<list.size(); i++){
-			   fw.write(list.get(i).getId());
-			   fw.write(",");
-			   fw.write(list.get(i).getgName());
-			   fw.write(",");
-			   fw.write(list.get(i).getStockNum());
-			   fw.write(",");
-			   fw.write(list.get(i).getgPrice());
-			   fw.write("\r\n");
-		   }       
-	    }catch (Exception e) {
-	    	e.printStackTrace();
-	   }finally{
-			try{
+
+	public void fileSave(String path) {
+		FileWriter fw = null;
+		try {
+			fw = new FileWriter(path);
+			for (int i = 0; i < list.size(); i++) {
+				fw.write(list.get(i).getId());
+				fw.write(",");
+				fw.write(list.get(i).getgName());
+				fw.write(",");
+				fw.write(list.get(i).getStockNum());
+				fw.write(",");
+				fw.write(list.get(i).getgPrice());
+				fw.write("\r\n");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
 				fw.close();
-			}catch(IOException e){
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
 
-
-	
 }

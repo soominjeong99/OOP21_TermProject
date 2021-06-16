@@ -27,17 +27,17 @@ class UserFrame extends JFrame {
 
 	UserFrame() {
 		super("사용자 메인 메뉴창"); // 타이틀
-		//JPanel jPanel = new JPanel();
+		// JPanel jPanel = new JPanel();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		//setSize(500, 300);
 
-		//add(jPanel);
+		// setSize(500, 300);
+
+		// add(jPanel);
 
 		JButton login = new JButton("로그인");
 		login.setBounds(172, 60, 118, 44);
@@ -64,12 +64,5 @@ class UserFrame extends JFrame {
 			}
 		});
 
-	/*	add(jPanel);
-		Dimension frameSize = getSize();
-		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
-		setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2); // 화면 중앙에 띄우기
-		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		setVisible(true);
-		*/
 	}
 }

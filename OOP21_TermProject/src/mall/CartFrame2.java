@@ -14,9 +14,8 @@ import java.util.*;
 //Print the shopping cart list serially
 public class CartFrame2 extends JFrame {
 
-	public static void main(String[] args)
-	{
-		//Set Frame
+	public static void main(String[] args) {
+		// Set Frame
 		JFrame jframe = new JFrame();
 		jframe.setBounds(50, 50, 500, 300);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,7 +31,6 @@ public class CartFrame2 extends JFrame {
 		tf.setSize(300, 30);
 		tf.setLocation(5, 5);
 		jpanel.add(tf);
-
 
 		// Print area
 		JTextArea ta = new JTextArea();
@@ -67,19 +65,17 @@ public class CartFrame2 extends JFrame {
 		jpanel.add(exit);
 		exit.setBounds(350, 220, 100, 30);
 
-
-		//		Cart cart = new Cart(2, goodsName, 5, 2000, 2, 4000);
+		// Cart cart = new Cart(2, goodsName, 5, 2000, 2, 4000);
 
 		ArrayList<Cart> cartList = new ArrayList<Cart>();
 
-		//input button event
-		input.addActionListener(new ActionListener(){
+		// input button event
+		input.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				String[] temp = tf.getText().split(" ");
 
-				//Casting
+				// Casting
 				int id = Integer.parseInt(temp[0]);
 				String gName = temp[1];
 				int stockNum = Integer.parseInt(temp[2]);
@@ -91,44 +87,36 @@ public class CartFrame2 extends JFrame {
 			}
 		});
 
-		//output button event
+		// output button event
 		output.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				for (int i = 0; i < cartList.size(); i++)
-				{
+				for (int i = 0; i < cartList.size(); i++) {
 					ta.append(cartList.get(i).toString() + "\n");
 				}
 			}
 		});
 
-
-		//search button event
-		search.addActionListener(new ActionListener()
-		{
+		// search button event
+		search.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				String name = tf.getText();
 				Iterator<Cart> it = cartList.iterator();
-				while (it.hasNext())
-				{
+				while (it.hasNext()) {
 					Cart temp = it.next();
-					//search by name
-					if (temp.getName().equals(name))
-					{
+					// search by name
+					if (temp.getName().equals(name)) {
 						ta.setText(temp.toString() + "\n");
 					}
 				}
 			}
 		});
 
-		//modify button event
-		modify.addActionListener(new ActionListener()
-		{
+		// modify button event
+		modify.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				String[] name1 = tf.getText().split(" ");
 				int id = Integer.parseInt(name1[0]);
 				String gName = name1[1];
@@ -139,12 +127,10 @@ public class CartFrame2 extends JFrame {
 
 				Iterator<Cart> it1 = cartList.iterator();
 
-				while (it1.hasNext())
-				{
+				while (it1.hasNext()) {
 					Cart temp = it1.next();
 
-					if (temp.getName().equals(name1[1]))
-					{
+					if (temp.getName().equals(name1[1])) {
 						temp.setId(id);
 						temp.setBuyNum(buyNum);
 					}
@@ -152,21 +138,17 @@ public class CartFrame2 extends JFrame {
 			}
 		});
 
-		//delete button event
-		delete.addActionListener(new ActionListener()
-		{
+		// delete button event
+		delete.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				int num = 0;
 				String name2 = tf.getText();
 				Iterator<Cart> it2 = cartList.iterator();
-				while (it2.hasNext())
-				{
+				while (it2.hasNext()) {
 					Cart temp = it2.next();
 
-					if (temp.getName().equals(name2))
-					{
+					if (temp.getName().equals(name2)) {
 						cartList.remove(num);
 					}
 					num++;
@@ -174,12 +156,10 @@ public class CartFrame2 extends JFrame {
 			}
 		});
 
-		//exit button event
-		exit.addActionListener(new ActionListener()
-		{
+		// exit button event
+		exit.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
+			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
 			}
 		});

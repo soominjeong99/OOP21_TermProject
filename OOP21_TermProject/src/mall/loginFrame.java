@@ -19,7 +19,7 @@ public class loginFrame extends JFrame {
 		JTextField txtID = new JTextField(10);
 		TextField txtPass = new TextField(10);
 		add(txtPass);
-		txtPass.setEchoChar('*');//암호화
+		txtPass.setEchoChar('*');// 암호화
 		JButton logBtn = new JButton("Log in");
 
 		panel.add(label);
@@ -31,32 +31,29 @@ public class loginFrame extends JFrame {
 		logBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e2) {
-				try{
+				try {
 					String s;
 					String[] array;
 					BufferedReader bos = new BufferedReader(new FileReader("members.txt"));
-					while((s=bos.readLine())!=null){
-						array=s.split("/");
-					if(txtID.getText().equals(array[0])&&txtPass.getText().equals(array[1]))
-					{
-						JOptionPane.showMessageDialog(null, "로그인 성공");
-						new UserFrameLogin();
-					}
-					else 
-					{
-						JOptionPane.showMessageDialog(null, "로그인 실패");
-					}
+					while ((s = bos.readLine()) != null) {
+						array = s.split("/");
+						if (txtID.getText().equals(array[0]) && txtPass.getText().equals(array[1])) {
+							JOptionPane.showMessageDialog(null, "로그인 성공");
+							new UserFrameLogin();
+						} else {
+							JOptionPane.showMessageDialog(null, "로그인 실패");
+						}
 					}
 					bos.close();
-				}catch (IOException E10){
+				} catch (IOException E10) {
 					System.out.println("파일 읽어오기 실패");
 				}
 			}
 		});
-		
+
 		add(panel);
 		setVisible(true);
-		setBounds(100, 100, 450, 300);		
+		setBounds(100, 100, 450, 300);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -47,8 +47,7 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 		frame.setTitle("상품등록");
 		frame.setSize(500, 330);
 		frame.setLocation(500, 300);
-		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);	
-		
+		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
 		JLabel pId = new JLabel("상품 ID :");
 		pId.setBounds(27, 25, 90, 30);
@@ -69,9 +68,9 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 		id = new JTextField();
 		id.setColumns(10);
 		id.setBounds(97, 30, 62, 21);
-		if(list.size() != 0){
-			id.setText((list.get(list.size()-1).getId()+1)+"");
-		}else{
+		if (list.size() != 0) {
+			id.setText((list.get(list.size() - 1).getId() + 1) + "");
+		} else {
 			id.setText(1001 + "");
 		}
 		frame.getContentPane().add(id);
@@ -80,12 +79,12 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 		gName.setColumns(10);
 		gName.setBounds(97, 70, 62, 21);
 		frame.getContentPane().add(gName);
-		
+
 		stockNum = new JTextField();
 		stockNum.setColumns(10);
 		stockNum.setBounds(97, 110, 62, 21);
 		frame.getContentPane().add(stockNum);
-		
+
 		gPrice = new JTextField();
 		gPrice.setColumns(10);
 		gPrice.setBounds(97, 150, 62, 21);
@@ -119,7 +118,7 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 				JOptionPane.showMessageDialog(this, "상품 수량을 입력해 주세요", "메시지", JOptionPane.INFORMATION_MESSAGE);
 			} else if (goodsPrice.equals("")) {
 				JOptionPane.showMessageDialog(this, "상품 가격를 입력해 주세요", "메시지", JOptionPane.INFORMATION_MESSAGE);
-					} else {
+			} else {
 				for (int i = 0; i < list.size(); i++) {
 					if (goodsId.equals(list.get(i).getId())) {
 						JOptionPane.showMessageDialog(this, "동일한 상품ID가 있습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
@@ -135,17 +134,18 @@ public class StockRegister extends StockManagerFrame implements ActionListener {
 					JOptionPane.showMessageDialog(this, "상품 가격은 문자를 입력할 수 없습니다.", "메시지",
 							JOptionPane.INFORMATION_MESSAGE);
 				} else {
-					int check = JOptionPane.showConfirmDialog(this,
-							"입력한 내용이 맞습니까?\n" + "상품 ID : " + goodsId + "\n상품 이름 : " + goodsName
-									+ "\n상품 수량 : " + goodsNum + "\n상품 가격 : " + goodsPrice,
-							"메시지", JOptionPane.INFORMATION_MESSAGE);
+					int check = JOptionPane
+							.showConfirmDialog(this,
+									"입력한 내용이 맞습니까?\n" + "상품 ID : " + goodsId + "\n상품 이름 : " + goodsName + "\n상품 수량 : "
+											+ goodsNum + "\n상품 가격 : " + goodsPrice,
+									"메시지", JOptionPane.INFORMATION_MESSAGE);
 					if (check == 0) {
 						Goods g = new Goods();
 						g.setId(Integer.parseInt(goodsId));
 						g.setgName(goodsName);
 						g.setStockNum(Integer.parseInt(goodsNum));
 						g.setgPrice(Integer.parseInt(goodsPrice));
-				;
+						;
 						list.add(g);
 						JOptionPane.showMessageDialog(this, "상품이 등록되었습니다.", "메시지", JOptionPane.INFORMATION_MESSAGE);
 						int check2 = JOptionPane.showConfirmDialog(this, "계속 입력하시겠습니까?");

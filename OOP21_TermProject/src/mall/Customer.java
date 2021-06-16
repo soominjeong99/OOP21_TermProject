@@ -6,49 +6,40 @@ public class Customer {
 	private String name;
 	private String tel;
 	private String addr;
-	
-	public int getId()
-	{
+
+	public int getId() {
 		return this.id;
 	}
-	
-	public void setId(int id)
-	{
+
+	public void setId(int id) {
 		this.id = id;
 	}
-	
-	public String getPwd()
-	{
+
+	public String getPwd() {
 		return this.pwd;
 	}
-	
-	public void setPwd(String pwd)
-	{
+
+	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
-	public String getName()
-	{
+
+	public String getName() {
 		return this.name;
 	}
-	
-	public void setName(String name)
-	{
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getTel()
-	{
+
+	public String getTel() {
 		return this.tel;
 	}
-	
-	public void setTel(String tel)
-	{
+
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
-	public void setAddr(String addr)
-	{
+	public void setAddr(String addr) {
 		this.addr = addr;
 	}
 }

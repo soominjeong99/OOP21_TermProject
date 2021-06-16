@@ -18,8 +18,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
-
-
 public class ManagerFrame extends JFrame {
 	/**
 	 * 
@@ -28,7 +26,7 @@ public class ManagerFrame extends JFrame {
 	public static ArrayList<String> lineArray = new ArrayList<String>();
 
 	private JPanel contentPane;
-	
+
 	static UserListFrame frames1 = new UserListFrame(lineArray);
 	static GoodsManager frames2 = new GoodsManager();
 
@@ -37,7 +35,7 @@ public class ManagerFrame extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			
+
 			public void run() {
 				try {
 					ManagerFrame frames = new ManagerFrame();
@@ -47,12 +45,12 @@ public class ManagerFrame extends JFrame {
 					@SuppressWarnings("resource")
 					BufferedReader bfReader = new BufferedReader(textRead);
 					String line = "";
-					
+
 					// null 이 아닐때까지 반복한다.
-					while ( (line = bfReader.readLine()) != null ) {
-					lineArray.add(line);
+					while ((line = bfReader.readLine()) != null) {
+						lineArray.add(line);
 					}
-					
+
 					frames2.setVisible(false);
 					frames1.setVisible(false);
 				} catch (Exception e) {
@@ -64,10 +62,10 @@ public class ManagerFrame extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @return 
+	 * 
+	 * @return
 	 */
-	
-	
+
 	public ManagerFrame() {
 		setTitle("*매니저*");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -80,34 +78,34 @@ public class ManagerFrame extends JFrame {
 		JLabel lblNewLabel = new JLabel("매니저 관리창");
 		lblNewLabel.setBounds(174, 33, 90, 46);
 		contentPane.add(lblNewLabel);
-		
+
 		JButton btnNewButton = new JButton("유저 관리");
 		btnNewButton.setBounds(83, 115, 109, 40);
 		contentPane.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			new UserListFrame(lineArray);
-			frames1.setVisible(true);
-			setVisible(false);
+				new UserListFrame(lineArray);
+				frames1.setVisible(true);
+				setVisible(false);
 			}
 		});
-		
-		
+
 		JButton btnNewButton_1 = new JButton("재고 관리");
 		btnNewButton_1.setBounds(249, 115, 109, 40);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			new GoodsManager();
-			frames2.setVisible(true);
-			setVisible(false);
+				new GoodsManager();
+				frames2.setVisible(true);
+				setVisible(false);
 			}
 		});
-		
+
 	}
+
 	public void UserListFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		setTitle("*회원리스트*");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -115,31 +113,31 @@ public class ManagerFrame extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
-		
+
 		System.out.print(lineArray);
 		JLabel lblNewLabel_1 = new JLabel("회원리스트");
 		lblNewLabel_1.setBounds(168, 10, 90, 31);
 		contentPane.add(lblNewLabel_1);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("아이디   |   비밀번호   |   이름   |   이메일   |   주소 ");
 		lblNewLabel_2.setBounds(77, 46, 350, 20);
 		contentPane.add(lblNewLabel_2);
-		
+
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(77, 76, 292, 133);
 		contentPane.add(textArea);
-		
+
 		JButton btnNewButton_1 = new JButton("회원 출력하기");
 		btnNewButton_1.setBounds(168, 213, 109, 40);
 		contentPane.add(btnNewButton_1);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 for(int j = 0; j < lineArray.size() ; j++) {
-					  textArea.append("" + lineArray.get(j)  + "\n");
-				  }
+				for (int j = 0; j < lineArray.size(); j++) {
+					textArea.append("" + lineArray.get(j) + "\n");
+				}
 			}
 		});
-	
+
 	}
-	
+
 }
